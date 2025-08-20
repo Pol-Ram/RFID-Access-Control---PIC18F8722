@@ -1,0 +1,2417 @@
+
+
+Microchip Technology PIC18 LITE Macro Assembler V1.44 build -154322312 
+                                                                                               Thu Jan 09 19:23:49 2025
+
+Microchip Technology Omniscient Code Generator v1.44 (Free mode) build 201709140600
+     1                           	processor	18F8722
+     2                           	fnconf	rparam,??,?,0
+     3                           	opt	pw 120
+     4                           	opt	lm
+     5                           	psect	idataCOMRAM,global,class=CODE,delta=1,noexec
+     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     7                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     8                           	psect	dataCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+     9                           	psect	cstackBANK0,global,class=BANK0,space=1,delta=1,noexec
+    10                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,noexec
+    11                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    19                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    20                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    21                           	psect	text10,global,reloc=2,class=CODE,delta=1
+    22                           	psect	text11,global,reloc=2,class=CODE,delta=1
+    23                           	psect	intcode,global,reloc=2,class=CODE,delta=1
+    24                           	psect	intcode_body,global,reloc=2,class=CODE,delta=1
+    25                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    26                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    27                           	psect	temp,global,ovrld,common,class=COMRAM,space=1,delta=1
+    28  0000                     
+    29                           ; Version 1.44
+    30                           ; Generated 14/09/2017 GMT
+    31                           ; 
+    32                           ; Copyright © 2017, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    33                           ; All rights reserved.
+    34                           ; 
+    35                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    36                           ; 
+    37                           ; Redistribution and use in source and binary forms, with or without modification, are
+    38                           ; permitted provided that the following conditions are met:
+    39                           ; 
+    40                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    41                           ;        conditions and the following disclaimer.
+    42                           ; 
+    43                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    44                           ;        of conditions and the following disclaimer in the documentation and/or other
+    45                           ;        materials provided with the distribution.
+    46                           ; 
+    47                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    48                           ;        software without specific prior written permission.
+    49                           ; 
+    50                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    51                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    52                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    53                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    54                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    55                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    56                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    57                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    58                           ; 
+    59                           ; 
+    60                           ; Code-generator required, PIC18F8722 Definitions
+    61                           ; 
+    62                           ; SFR Addresses
+    63  0000                     
+    64                           	psect	idataCOMRAM
+    65  0003D8                     __pidataCOMRAM:
+    66                           	opt stack 0
+    67                           
+    68                           ;initializer for calibration@F5717
+    69  0003D8  07                 	db	7
+    70  0003D9  0E                 	db	14
+    71  0003DA  03                 	db	3
+    72  0003DB  A1                 	db	161
+    73  0003DC  00                 	db	0
+    74  0003DD  F8                 	db	248
+    75  0003DE  01                 	db	1
+    76  0003DF  18                 	db	24
+    77  0003E0  00                 	db	0
+    78  0003E1  20                 	db	32
+    79  0003E2  60                 	db	96
+    80  0003E3  60                 	db	96
+    81  0003E4  00                 	db	0
+    82  0003E5  00                 	db	0
+    83  0003E6  3F                 	db	63
+    84  0003E7  01                 	db	1
+    85                           
+    86                           ;initializer for calibration@F5720
+    87  0003E8  00                 	db	0
+    88  0003E9  FC                 	db	252
+    89  0003EA  7C                 	db	124
+    90  0003EB  3C                 	db	60
+    91  0003EC  5C                 	db	92
+    92  0003ED  6C                 	db	108
+    93  0003EE  74                 	db	116
+    94  0003EF  70                 	db	112
+    95                           
+    96                           ;initializer for get_NFC_tag@F5732
+    97  0003F0  04                 	db	4
+    98  0003F1  02                 	db	2
+    99  0003F2  26                 	db	38
+   100  0003F3  07                 	db	7
+   101                           
+   102                           ;initializer for select_protocol@F5726
+   103  0003F4  02                 	db	2
+   104  0003F5  02                 	db	2
+   105  0003F6  02                 	db	2
+   106  0003F7  00                 	db	0
+   107  0000                     _LATD	set	3980
+   108  0000                     _TRISD	set	3989
+   109  0000                     _PORTD	set	3971
+   110  0000                     _RCREG1	set	4014
+   111  0000                     _TXREG1	set	4013
+   112  0000                     _PIR1bits	set	3998
+   113  0000                     _TRISCbits	set	3988
+   114  0000                     _SPBRG1	set	4015
+   115  0000                     _BAUDCON1bits	set	3966
+   116  0000                     _TXSTA1bits	set	4012
+   117  0000                     _RCSTA1bits	set	4011
+   118  0000                     _RCSTA1	set	4011
+   119  0000                     _TXSTA1	set	4012
+   120  0000                     _INTCONbits	set	4082
+   121  0000                     _T0CONbits	set	4053
+   122                           
+   123                           ; #config settings
+   124  0000                     
+   125                           	psect	cinit
+   126  000384                     __pcinit:
+   127                           	opt stack 0
+   128  000384                     start_initialization:
+   129                           	opt stack 0
+   130  000384                     __initialization:
+   131                           	opt stack 0
+   132                           
+   133                           ; Initialize objects allocated to COMRAM (32 bytes)
+   134                           ; load TBLPTR registers with __pidataCOMRAM
+   135  000384  0ED8               	movlw	low __pidataCOMRAM
+   136  000386  6EF6               	movwf	tblptrl,c
+   137  000388  0E03               	movlw	high __pidataCOMRAM
+   138  00038A  6EF7               	movwf	tblptrh,c
+   139  00038C  0E00               	movlw	low (__pidataCOMRAM shr (0+16))
+   140  00038E  6EF8               	movwf	tblptru,c
+   141  000390  EE00  F02A         	lfsr	0,__pdataCOMRAM
+   142  000394  EE10 F020          	lfsr	1,32
+   143  000398                     copy_data0:
+   144  000398  0009               	tblrd		*+
+   145  00039A  CFF5 FFEE          	movff	tablat,postinc0
+   146  00039E  50E5               	movf	postdec1,w,c
+   147  0003A0  50E1               	movf	fsr1l,w,c
+   148  0003A2  E1FA               	bnz	copy_data0
+   149                           
+   150                           ; Clear objects allocated to COMRAM (1 bytes)
+   151  0003A4  6A4A               	clrf	__pbssCOMRAM& (0+255),c
+   152  0003A6                     end_of_initialization:
+   153                           	opt stack 0
+   154  0003A6                     __end_of__initialization:
+   155                           	opt stack 0
+   156  0003A6  904B               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
+   157  0003A8  924B               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+   158  0003AA  0100               	movlb	0
+   159  0003AC  EF95  F001         	goto	_main	;jump to C main() function
+   160                           tblptru	equ	0xFF8
+   161                           tblptrh	equ	0xFF7
+   162                           tblptrl	equ	0xFF6
+   163                           tablat	equ	0xFF5
+   164                           postinc0	equ	0xFEE
+   165                           postdec1	equ	0xFE5
+   166                           fsr1l	equ	0xFE1
+   167                           
+   168                           	psect	bssCOMRAM
+   169  00004A                     __pbssCOMRAM:
+   170                           	opt stack 0
+   171  00004A                     _flag_tmr0:
+   172                           	opt stack 0
+   173  00004A                     	ds	1
+   174                           tblptru	equ	0xFF8
+   175                           tblptrh	equ	0xFF7
+   176                           tblptrl	equ	0xFF6
+   177                           tablat	equ	0xFF5
+   178                           postinc0	equ	0xFEE
+   179                           postdec1	equ	0xFE5
+   180                           fsr1l	equ	0xFE1
+   181                           
+   182                           	psect	dataCOMRAM
+   183  00002A                     __pdataCOMRAM:
+   184                           	opt stack 0
+   185  00002A                     calibration@F5717:
+   186                           	opt stack 0
+   187  00002A                     	ds	16
+   188  00003A                     calibration@F5720:
+   189                           	opt stack 0
+   190  00003A                     	ds	8
+   191  000042                     get_NFC_tag@F5732:
+   192                           	opt stack 0
+   193  000042                     	ds	4
+   194  000046                     select_protocol@F5726:
+   195                           	opt stack 0
+   196  000046                     	ds	4
+   197                           tblptru	equ	0xFF8
+   198                           tblptrh	equ	0xFF7
+   199                           tblptrl	equ	0xFF6
+   200                           tablat	equ	0xFF5
+   201                           postinc0	equ	0xFEE
+   202                           postdec1	equ	0xFE5
+   203                           fsr1l	equ	0xFE1
+   204                           
+   205                           	psect	cstackBANK0
+   206  000060                     __pcstackBANK0:
+   207                           	opt stack 0
+   208  000060                     calibration@command:
+   209                           	opt stack 0
+   210                           
+   211                           ; 16 bytes @ 0x0
+   212  000060                     	ds	16
+   213  000070                     calibration@power_values:
+   214                           	opt stack 0
+   215                           
+   216                           ; 8 bytes @ 0x10
+   217  000070                     	ds	8
+   218  000078                     calibration@response:
+   219                           	opt stack 0
+   220                           
+   221                           ; 3 bytes @ 0x18
+   222  000078                     	ds	3
+   223  00007B                     calibration@i:
+   224                           	opt stack 0
+   225                           
+   226                           ; 2 bytes @ 0x1B
+   227  00007B                     	ds	2
+   228  00007D                     calibration@j:
+   229                           	opt stack 0
+   230                           
+   231                           ; 2 bytes @ 0x1D
+   232  00007D                     	ds	2
+   233                           tblptru	equ	0xFF8
+   234                           tblptrh	equ	0xFF7
+   235                           tblptrl	equ	0xFF6
+   236                           tablat	equ	0xFF5
+   237                           postinc0	equ	0xFEE
+   238                           postdec1	equ	0xFE5
+   239                           fsr1l	equ	0xFE1
+   240                           
+   241                           	psect	cstackCOMRAM
+   242  000001                     __pcstackCOMRAM:
+   243                           	opt stack 0
+   244  000001                     ??_isr:
+   245  000001                     
+   246                           ; 2 bytes @ 0x0
+   247  000001                     	ds	18
+   248  000013                     UART_Write@data:
+   249                           	opt stack 0
+   250                           
+   251                           ; 1 bytes @ 0x12
+   252  000013                     	ds	1
+   253  000014                     ??_identity:
+   254  000014                     echo@data:
+   255                           	opt stack 0
+   256  000014                     SEND_RFID@command:
+   257                           	opt stack 0
+   258                           
+   259                           ; 2 bytes @ 0x13
+   260  000014                     	ds	1
+   261  000015                     echo@command:
+   262                           	opt stack 0
+   263  000015                     identity@identity_data:
+   264                           	opt stack 0
+   265                           
+   266                           ; 16 bytes @ 0x14
+   267  000015                     	ds	1
+   268  000016                     SEND_RFID@length:
+   269                           	opt stack 0
+   270                           
+   271                           ; 1 bytes @ 0x15
+   272  000016                     	ds	1
+   273  000017                     SEND_RFID@i:
+   274                           	opt stack 0
+   275                           
+   276                           ; 1 bytes @ 0x16
+   277  000017                     	ds	1
+   278  000018                     ??_calibration:
+   279  000018                     ??_select_protocol:
+   280  000018                     ??_get_NFC_tag:
+   281                           
+   282                           ; 1 bytes @ 0x17
+   283  000018                     	ds	2
+   284  00001A                     select_protocol@command:
+   285                           	opt stack 0
+   286  00001A                     get_NFC_tag@command1:
+   287                           	opt stack 0
+   288                           
+   289                           ; 4 bytes @ 0x19
+   290  00001A                     	ds	4
+   291  00001E                     select_protocol@response:
+   292                           	opt stack 0
+   293  00001E                     get_NFC_tag@response:
+   294                           	opt stack 0
+   295                           
+   296                           ; 2 bytes @ 0x1D
+   297  00001E                     	ds	2
+   298  000020                     select_protocol@i:
+   299                           	opt stack 0
+   300  000020                     get_NFC_tag@i:
+   301                           	opt stack 0
+   302                           
+   303                           ; 2 bytes @ 0x1F
+   304  000020                     	ds	5
+   305  000025                     identity@code:
+   306                           	opt stack 0
+   307                           
+   308                           ; 1 bytes @ 0x24
+   309  000025                     	ds	1
+   310  000026                     identity@length:
+   311                           	opt stack 0
+   312                           
+   313                           ; 1 bytes @ 0x25
+   314  000026                     	ds	1
+   315  000027                     identity@i:
+   316                           	opt stack 0
+   317                           
+   318                           ; 1 bytes @ 0x26
+   319  000027                     	ds	1
+   320  000028                     ??_main:
+   321                           
+   322                           ; 1 bytes @ 0x27
+   323  000028                     	ds	1
+   324  000029                     main@instruction:
+   325                           	opt stack 0
+   326                           
+   327                           ; 1 bytes @ 0x28
+   328  000029                     	ds	1
+   329                           tblptru	equ	0xFF8
+   330                           tblptrh	equ	0xFF7
+   331                           tblptrl	equ	0xFF6
+   332                           tablat	equ	0xFF5
+   333                           postinc0	equ	0xFEE
+   334                           postdec1	equ	0xFE5
+   335                           fsr1l	equ	0xFE1
+   336                           
+   337 ;;
+   338 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   339 ;;
+   340 ;; *************** function _main *****************
+   341 ;; Defined at:
+   342 ;;		line 280 in file "main.c"
+   343 ;; Parameters:    Size  Location     Type
+   344 ;;		None
+   345 ;; Auto vars:     Size  Location     Type
+   346 ;;  instruction     1   40[COMRAM] unsigned char 
+   347 ;; Return value:  Size  Location     Type
+   348 ;;                  2  135[None  ] int 
+   349 ;; Registers used:
+   350 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   351 ;; Tracked objects:
+   352 ;;		On entry : 0/0
+   353 ;;		On exit  : 0/0
+   354 ;;		Unchanged: 0/0
+   355 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   356 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   357 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   358 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   359 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   360 ;;Total ram usage:        2 bytes
+   361 ;; Hardware stack levels required when called:    4
+   362 ;; This function calls:
+   363 ;;		_calibration
+   364 ;;		_echo
+   365 ;;		_get_NFC_tag
+   366 ;;		_identity
+   367 ;;		_init_uart1
+   368 ;;		_int_timer
+   369 ;;		_select_protocol
+   370 ;; This function is called by:
+   371 ;;		Startup code after reset
+   372 ;; This function uses a non-reentrant model
+   373 ;;
+   374                           
+   375                           	psect	text0
+   376  00032A                     __ptext0:
+   377                           	opt stack 0
+   378  00032A                     _main:
+   379                           	opt stack 27
+   380                           
+   381                           ;main.c: 281: TRISD = 0x00;
+   382                           
+   383                           ;incstack = 0
+   384  00032A  0E00               	movlw	0
+   385  00032C  6E95               	movwf	3989,c	;volatile
+   386                           
+   387                           ;main.c: 282: PORTD = 0;
+   388  00032E  0E00               	movlw	0
+   389  000330  6E83               	movwf	3971,c	;volatile
+   390                           
+   391                           ;main.c: 284: init_uart1();
+   392  000332  ECFC  F001         	call	_init_uart1	;wreg free
+   393                           
+   394                           ;main.c: 285: int_timer();
+   395  000336  EC27  F002         	call	_int_timer	;wreg free
+   396                           
+   397                           ;main.c: 288: char instruction;
+   398                           ;main.c: 289: instruction=0;
+   399  00033A  0E00               	movlw	0
+   400  00033C  6E29               	movwf	main@instruction,c
+   401                           
+   402                           ;main.c: 290: while (instruction != 0x55)
+   403  00033E  D00B               	goto	l136
+   404  000340                     
+   405                           ;main.c: 291: {
+   406                           ;main.c: 292: instruction = echo();
+   407  000340  EC0B  F002         	call	_echo	;wreg free
+   408  000344  6E29               	movwf	main@instruction,c
+   409                           
+   410                           ;main.c: 293: _delay((unsigned long)((70)*(10000000/4000.0)));
+   411  000346  0EE4               	movlw	228
+   412  000348  6E28               	movwf	??_main& (0+255),c
+   413  00034A  0E44               	movlw	68
+   414  00034C                     u757:
+   415  00034C  2EE8               	decfsz	wreg,f,c
+   416  00034E  D7FE               	bra	u757
+   417  000350  2E28               	decfsz	??_main& (0+255),f,c
+   418  000352  D7FC               	bra	u757
+   419  000354  D000               	nop2	
+   420  000356                     l136:
+   421  000356  0E55               	movlw	85
+   422  000358  1829               	xorwf	main@instruction,w,c
+   423  00035A  A4D8               	btfss	status,2,c
+   424  00035C  D7F1               	goto	l137
+   425                           
+   426                           ;main.c: 294: }
+   427                           ;main.c: 296: identity();
+   428  00035E  EC5B  F001         	call	_identity	;wreg free
+   429                           
+   430                           ;main.c: 297: _delay((unsigned long)((70)*(10000000/4000.0)));
+   431  000362  0EE4               	movlw	228
+   432  000364  6E28               	movwf	??_main& (0+255),c
+   433  000366  0E44               	movlw	68
+   434  000368                     u767:
+   435  000368  2EE8               	decfsz	wreg,f,c
+   436  00036A  D7FE               	bra	u767
+   437  00036C  2E28               	decfsz	??_main& (0+255),f,c
+   438  00036E  D7FC               	bra	u767
+   439  000370  D000               	nop2	
+   440                           
+   441                           ;main.c: 299: calibration();
+   442  000372  EC09  F000         	call	_calibration	;wreg free
+   443                           
+   444                           ;main.c: 300: select_protocol();
+   445  000376  ECC6  F000         	call	_select_protocol	;wreg free
+   446                           
+   447                           ;main.c: 301: get_NFC_tag();
+   448  00037A  EC12  F001         	call	_get_NFC_tag	;wreg free
+   449  00037E  0E07               	movlw	7
+   450  000380  6E83               	movwf	3971,c	;volatile
+   451  000382  D7FD               	goto	l139
+   452  000384                     __end_of_main:
+   453                           	opt stack 0
+   454                           tblptru	equ	0xFF8
+   455                           tblptrh	equ	0xFF7
+   456                           tblptrl	equ	0xFF6
+   457                           tablat	equ	0xFF5
+   458                           postinc0	equ	0xFEE
+   459                           wreg	equ	0xFE8
+   460                           postdec1	equ	0xFE5
+   461                           fsr1l	equ	0xFE1
+   462                           status	equ	0xFD8
+   463                           
+   464 ;; *************** function _select_protocol *****************
+   465 ;; Defined at:
+   466 ;;		line 203 in file "main.c"
+   467 ;; Parameters:    Size  Location     Type
+   468 ;;		None
+   469 ;; Auto vars:     Size  Location     Type
+   470 ;;  i               2   31[COMRAM] int 
+   471 ;;  command         4   25[COMRAM] unsigned char [4]
+   472 ;;  response        2   29[COMRAM] unsigned char [2]
+   473 ;; Return value:  Size  Location     Type
+   474 ;;                  1    wreg      void 
+   475 ;; Registers used:
+   476 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   477 ;; Tracked objects:
+   478 ;;		On entry : 0/0
+   479 ;;		On exit  : 0/0
+   480 ;;		Unchanged: 0/0
+   481 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   482 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   483 ;;      Locals:         8       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   484 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   485 ;;      Totals:        10       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   486 ;;Total ram usage:       10 bytes
+   487 ;; Hardware stack levels used:    1
+   488 ;; Hardware stack levels required when called:    3
+   489 ;; This function calls:
+   490 ;;		_SEND_RFID
+   491 ;;		_UART_Read
+   492 ;; This function is called by:
+   493 ;;		_main
+   494 ;; This function uses a non-reentrant model
+   495 ;;
+   496                           
+   497                           	psect	text1
+   498  00018C                     __ptext1:
+   499                           	opt stack 0
+   500  00018C                     _select_protocol:
+   501                           	opt stack 27
+   502                           
+   503                           ;main.c: 204: unsigned char command[] = {0x02, 0x02, 0x02, 0x00};
+   504                           
+   505                           ;incstack = 0
+   506  00018C  C046  F01A         	movff	select_protocol@F5726,select_protocol@command
+   507  000190  C047  F01B         	movff	select_protocol@F5726+1,select_protocol@command+1
+   508  000194  C048  F01C         	movff	select_protocol@F5726+2,select_protocol@command+2
+   509  000198  C049  F01D         	movff	select_protocol@F5726+3,select_protocol@command+3
+   510                           
+   511                           ;main.c: 205: unsigned char response[2];
+   512                           ;main.c: 207: TRISD = 0x00;
+   513  00019C  0E00               	movlw	0
+   514  00019E  6E95               	movwf	3989,c	;volatile
+   515                           
+   516                           ;main.c: 208: PORTD = 0x00;
+   517  0001A0  0E00               	movlw	0
+   518  0001A2  6E83               	movwf	3971,c	;volatile
+   519                           
+   520                           ;main.c: 211: SEND_RFID(command, 4);
+   521  0001A4  0E1A               	movlw	low select_protocol@command
+   522  0001A6  6E14               	movwf	SEND_RFID@command,c
+   523  0001A8  0E00               	movlw	high select_protocol@command
+   524  0001AA  6E15               	movwf	SEND_RFID@command+1,c
+   525  0001AC  0E04               	movlw	4
+   526  0001AE  6E16               	movwf	SEND_RFID@length,c
+   527  0001B0  ECD8  F001         	call	_SEND_RFID	;wreg free
+   528                           
+   529                           ;main.c: 214: for (int i = 0; i < 2; i++) {
+   530  0001B4  0E00               	movlw	0
+   531  0001B6  6E21               	movwf	select_protocol@i+1,c
+   532  0001B8  0E00               	movlw	0
+   533  0001BA  6E20               	movwf	select_protocol@i,c
+   534  0001BC                     l1314:
+   535  0001BC  BE21               	btfsc	select_protocol@i+1,7,c
+   536  0001BE  D006               	goto	l106
+   537  0001C0  5021               	movf	select_protocol@i+1,w,c
+   538  0001C2  E110               	bnz	l1324
+   539  0001C4  0E02               	movlw	2
+   540  0001C6  5C20               	subwf	select_protocol@i,w,c
+   541  0001C8  B0D8               	btfsc	status,0,c
+   542  0001CA  D00C               	goto	u660
+   543  0001CC                     l106:
+   544                           
+   545                           ;main.c: 215: response[i] = UART_Read();
+   546  0001CC  0E1E               	movlw	low select_protocol@response
+   547  0001CE  2420               	addwf	select_protocol@i,w,c
+   548  0001D0  6ED9               	movwf	fsr2l,c
+   549  0001D2  0E00               	movlw	high select_protocol@response
+   550  0001D4  2021               	addwfc	select_protocol@i+1,w,c
+   551  0001D6  6EDA               	movwf	fsr2h,c
+   552  0001D8  EC39  F002         	call	_UART_Read	;wreg free
+   553  0001DC  6EDF               	movwf	indf2,c
+   554  0001DE  4A20               	infsnz	select_protocol@i,f,c
+   555  0001E0  2A21               	incf	select_protocol@i+1,f,c
+   556  0001E2  D7EC               	goto	l1314
+   557  0001E4                     u660:
+   558  0001E4                     l1324:
+   559                           
+   560                           ;main.c: 216: }
+   561                           ;main.c: 219: if (response[0] == 0x00) {
+   562  0001E4  501E               	movf	select_protocol@response,w,c
+   563  0001E6  A4D8               	btfss	status,2,c
+   564  0001E8  D002               	goto	l108
+   565                           
+   566                           ;main.c: 220: PORTD = 0x03;
+   567  0001EA  0E03               	movlw	3
+   568  0001EC  D009               	goto	L1
+   569  0001EE                     l108:
+   570  0001EE  0E82               	movlw	130
+   571  0001F0  181E               	xorwf	select_protocol@response,w,c
+   572  0001F2  B4D8               	btfsc	status,2,c
+   573  0001F4  D004               	goto	u690
+   574  0001F6  0E83               	movlw	131
+   575  0001F8  181E               	xorwf	select_protocol@response,w,c
+   576  0001FA  A4D8               	btfss	status,2,c
+   577  0001FC  D003               	goto	l110
+   578  0001FE                     u690:
+   579                           
+   580                           ;main.c: 222: PORTD = 0xC0;
+   581  0001FE  0EC0               	movlw	192
+   582  000200                     L1:
+   583  000200  6E83               	movwf	3971,c	;volatile
+   584                           
+   585                           ;main.c: 223: } else {
+   586  000202  D001               	goto	l113
+   587  000204                     l110:
+   588                           
+   589                           ;main.c: 224: PORTD = 0xFF;
+   590  000204  6883               	setf	3971,c	;volatile
+   591  000206                     l113:
+   592                           
+   593                           ;main.c: 225: }
+   594                           ;main.c: 227: _delay((unsigned long)((1000)*(10000000/4000.0)));
+   595  000206  0E0D               	movlw	13
+   596  000208  6E19               	movwf	(??_select_protocol+1)& (0+255),c
+   597  00020A  0EAF               	movlw	175
+   598  00020C  6E18               	movwf	??_select_protocol& (0+255),c
+   599  00020E  0EB6               	movlw	182
+   600  000210                     u777:
+   601  000210  2EE8               	decfsz	wreg,f,c
+   602  000212  D7FE               	bra	u777
+   603  000214  2E18               	decfsz	??_select_protocol& (0+255),f,c
+   604  000216  D7FC               	bra	u777
+   605  000218  2E19               	decfsz	(??_select_protocol+1)& (0+255),f,c
+   606  00021A  D7FA               	bra	u777
+   607  00021C  D000               	nop2	
+   608                           
+   609                           ;main.c: 229: PORTD = 0x00;
+   610  00021E  0E00               	movlw	0
+   611  000220  6E83               	movwf	3971,c	;volatile
+   612  000222  0012               	return		;funcret
+   613  000224                     __end_of_select_protocol:
+   614                           	opt stack 0
+   615                           tblptru	equ	0xFF8
+   616                           tblptrh	equ	0xFF7
+   617                           tblptrl	equ	0xFF6
+   618                           tablat	equ	0xFF5
+   619                           postinc0	equ	0xFEE
+   620                           wreg	equ	0xFE8
+   621                           postdec1	equ	0xFE5
+   622                           fsr1l	equ	0xFE1
+   623                           indf2	equ	0xFDF
+   624                           fsr2h	equ	0xFDA
+   625                           fsr2l	equ	0xFD9
+   626                           status	equ	0xFD8
+   627                           
+   628 ;; *************** function _int_timer *****************
+   629 ;; Defined at:
+   630 ;;		line 40 in file "main.c"
+   631 ;; Parameters:    Size  Location     Type
+   632 ;;		None
+   633 ;; Auto vars:     Size  Location     Type
+   634 ;;		None
+   635 ;; Return value:  Size  Location     Type
+   636 ;;                  1    wreg      void 
+   637 ;; Registers used:
+   638 ;;		wreg, status,2
+   639 ;; Tracked objects:
+   640 ;;		On entry : 0/0
+   641 ;;		On exit  : 0/0
+   642 ;;		Unchanged: 0/0
+   643 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   644 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   645 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   646 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   647 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   648 ;;Total ram usage:        0 bytes
+   649 ;; Hardware stack levels used:    1
+   650 ;; Hardware stack levels required when called:    1
+   651 ;; This function calls:
+   652 ;;		Nothing
+   653 ;; This function is called by:
+   654 ;;		_main
+   655 ;; This function uses a non-reentrant model
+   656 ;;
+   657                           
+   658                           	psect	text2
+   659  00044E                     __ptext2:
+   660                           	opt stack 0
+   661  00044E                     _int_timer:
+   662                           	opt stack 29
+   663                           
+   664                           ;main.c: 42: T0CONbits.T0CS = 0;
+   665                           
+   666                           ;incstack = 0
+   667  00044E  9AD5               	bcf	4053,5,c	;volatile
+   668                           
+   669                           ;main.c: 43: T0CONbits.T0PS = 0b001;
+   670  000450  50D5               	movf	4053,w,c	;volatile
+   671  000452  0BF8               	andlw	-8
+   672  000454  0901               	iorlw	1
+   673  000456  6ED5               	movwf	4053,c	;volatile
+   674                           
+   675                           ;main.c: 44: T0CONbits.PSA = 0;
+   676  000458  96D5               	bcf	4053,3,c	;volatile
+   677                           
+   678                           ;main.c: 45: T0CONbits.T08BIT = 0;
+   679  00045A  9CD5               	bcf	4053,6,c	;volatile
+   680                           
+   681                           ;main.c: 46: INTCONbits.GIE = 1;
+   682  00045C  8EF2               	bsf	intcon,7,c	;volatile
+   683                           
+   684                           ;main.c: 47: INTCONbits.PEIE = 1;
+   685  00045E  8CF2               	bsf	intcon,6,c	;volatile
+   686                           
+   687                           ;main.c: 48: INTCONbits.TMR0IE = 1;
+   688  000460  8AF2               	bsf	intcon,5,c	;volatile
+   689                           
+   690                           ;main.c: 49: T0CONbits.TMR0ON = 1;
+   691  000462  8ED5               	bsf	4053,7,c	;volatile
+   692  000464  0012               	return		;funcret
+   693  000466                     __end_of_int_timer:
+   694                           	opt stack 0
+   695                           tblptru	equ	0xFF8
+   696                           tblptrh	equ	0xFF7
+   697                           tblptrl	equ	0xFF6
+   698                           tablat	equ	0xFF5
+   699                           intcon	equ	0xFF2
+   700                           postinc0	equ	0xFEE
+   701                           wreg	equ	0xFE8
+   702                           postdec1	equ	0xFE5
+   703                           fsr1l	equ	0xFE1
+   704                           indf2	equ	0xFDF
+   705                           fsr2h	equ	0xFDA
+   706                           fsr2l	equ	0xFD9
+   707                           status	equ	0xFD8
+   708                           
+   709 ;; *************** function _init_uart1 *****************
+   710 ;; Defined at:
+   711 ;;		line 64 in file "main.c"
+   712 ;; Parameters:    Size  Location     Type
+   713 ;;		None
+   714 ;; Auto vars:     Size  Location     Type
+   715 ;;		None
+   716 ;; Return value:  Size  Location     Type
+   717 ;;                  1    wreg      void 
+   718 ;; Registers used:
+   719 ;;		wreg, status,2
+   720 ;; Tracked objects:
+   721 ;;		On entry : 0/0
+   722 ;;		On exit  : 0/0
+   723 ;;		Unchanged: 0/0
+   724 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   725 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   726 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   727 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   728 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   729 ;;Total ram usage:        0 bytes
+   730 ;; Hardware stack levels used:    1
+   731 ;; Hardware stack levels required when called:    1
+   732 ;; This function calls:
+   733 ;;		Nothing
+   734 ;; This function is called by:
+   735 ;;		_main
+   736 ;; This function uses a non-reentrant model
+   737 ;;
+   738                           
+   739                           	psect	text3
+   740  0003F8                     __ptext3:
+   741                           	opt stack 0
+   742  0003F8                     _init_uart1:
+   743                           	opt stack 29
+   744                           
+   745                           ;main.c: 66: TXSTA1 = 0;
+   746                           
+   747                           ;incstack = 0
+   748  0003F8  0E00               	movlw	0
+   749  0003FA  6EAC               	movwf	4012,c	;volatile
+   750                           
+   751                           ;main.c: 67: RCSTA1 = 0;
+   752  0003FC  0E00               	movlw	0
+   753  0003FE  6EAB               	movwf	4011,c	;volatile
+   754                           
+   755                           ;main.c: 69: RCSTA1bits.CREN = 1;
+   756  000400  88AB               	bsf	4011,4,c	;volatile
+   757                           
+   758                           ;main.c: 70: TXSTA1bits.BRGH = 1;
+   759  000402  84AC               	bsf	4012,2,c	;volatile
+   760                           
+   761                           ;main.c: 71: RCSTA1bits.ADDEN = 0;
+   762  000404  96AB               	bcf	4011,3,c	;volatile
+   763                           
+   764                           ;main.c: 72: BAUDCON1bits.BRG16 = 1;
+   765  000406  867E               	bsf	3966,3,c	;volatile
+   766                           
+   767                           ;main.c: 74: SPBRG1 = 42;
+   768  000408  0E2A               	movlw	42
+   769  00040A  6EAF               	movwf	4015,c	;volatile
+   770                           
+   771                           ;main.c: 76: TXSTA1bits.TXEN = 1;
+   772  00040C  8AAC               	bsf	4012,5,c	;volatile
+   773                           
+   774                           ;main.c: 77: RCSTA1bits.SPEN = 1;
+   775  00040E  8EAB               	bsf	4011,7,c	;volatile
+   776                           
+   777                           ;main.c: 78: TRISCbits.TRISC6 = 0;
+   778  000410  9C94               	bcf	3988,6,c	;volatile
+   779                           
+   780                           ;main.c: 79: TRISCbits.TRISC7 = 1;
+   781  000412  8E94               	bsf	3988,7,c	;volatile
+   782  000414  0012               	return		;funcret
+   783  000416                     __end_of_init_uart1:
+   784                           	opt stack 0
+   785                           tblptru	equ	0xFF8
+   786                           tblptrh	equ	0xFF7
+   787                           tblptrl	equ	0xFF6
+   788                           tablat	equ	0xFF5
+   789                           intcon	equ	0xFF2
+   790                           postinc0	equ	0xFEE
+   791                           wreg	equ	0xFE8
+   792                           postdec1	equ	0xFE5
+   793                           fsr1l	equ	0xFE1
+   794                           indf2	equ	0xFDF
+   795                           fsr2h	equ	0xFDA
+   796                           fsr2l	equ	0xFD9
+   797                           status	equ	0xFD8
+   798                           
+   799 ;; *************** function _identity *****************
+   800 ;; Defined at:
+   801 ;;		line 143 in file "main.c"
+   802 ;; Parameters:    Size  Location     Type
+   803 ;;		None
+   804 ;; Auto vars:     Size  Location     Type
+   805 ;;  identity_dat   16   20[COMRAM] unsigned char [16]
+   806 ;;  i               1   38[COMRAM] unsigned char 
+   807 ;;  length          1   37[COMRAM] unsigned char 
+   808 ;;  code            1   36[COMRAM] unsigned char 
+   809 ;; Return value:  Size  Location     Type
+   810 ;;                  1    wreg      void 
+   811 ;; Registers used:
+   812 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   813 ;; Tracked objects:
+   814 ;;		On entry : 0/0
+   815 ;;		On exit  : 0/0
+   816 ;;		Unchanged: 0/0
+   817 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   818 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   819 ;;      Locals:        19       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   820 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   821 ;;      Totals:        20       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   822 ;;Total ram usage:       20 bytes
+   823 ;; Hardware stack levels used:    1
+   824 ;; Hardware stack levels required when called:    2
+   825 ;; This function calls:
+   826 ;;		_UART_Read
+   827 ;;		_UART_Write
+   828 ;; This function is called by:
+   829 ;;		_main
+   830 ;; This function uses a non-reentrant model
+   831 ;;
+   832                           
+   833                           	psect	text4
+   834  0002B6                     __ptext4:
+   835                           	opt stack 0
+   836  0002B6                     _identity:
+   837                           	opt stack 28
+   838                           
+   839                           ;main.c: 145: char identity_data[16];
+   840                           ;main.c: 146: char i;
+   841                           ;main.c: 147: char code;
+   842                           ;main.c: 148: char length;
+   843                           ;main.c: 149: UART_Write(0x01);
+   844                           
+   845                           ;incstack = 0
+   846  0002B6  0E01               	movlw	1
+   847  0002B8  EC33  F002         	call	_UART_Write
+   848                           
+   849                           ;main.c: 150: UART_Write(0x00);
+   850  0002BC  0E00               	movlw	0
+   851  0002BE  EC33  F002         	call	_UART_Write
+   852                           
+   853                           ;main.c: 152: code = UART_Read();
+   854  0002C2  EC39  F002         	call	_UART_Read	;wreg free
+   855  0002C6  6E25               	movwf	identity@code,c
+   856                           
+   857                           ;main.c: 153: length = UART_Read();
+   858  0002C8  EC39  F002         	call	_UART_Read	;wreg free
+   859  0002CC  6E26               	movwf	identity@length,c
+   860                           
+   861                           ;main.c: 156: for (i = 0; i < length; i++)
+   862  0002CE  0E00               	movlw	0
+   863  0002D0  6E27               	movwf	identity@i,c
+   864  0002D2  D00C               	goto	l80
+   865  0002D4                     
+   866                           ;main.c: 157: {
+   867                           ;main.c: 158: identity_data[i] = UART_Read();
+   868  0002D4  5027               	movf	identity@i,w,c
+   869  0002D6  0D01               	mullw	1
+   870  0002D8  0E15               	movlw	low identity@identity_data
+   871  0002DA  24F3               	addwf	prodl,w,c
+   872  0002DC  6ED9               	movwf	fsr2l,c
+   873  0002DE  0E00               	movlw	high identity@identity_data
+   874  0002E0  20F4               	addwfc	prodh,w,c
+   875  0002E2  6EDA               	movwf	fsr2h,c
+   876  0002E4  EC39  F002         	call	_UART_Read	;wreg free
+   877  0002E8  6EDF               	movwf	indf2,c
+   878  0002EA  2A27               	incf	identity@i,f,c
+   879  0002EC                     l80:
+   880  0002EC  5026               	movf	identity@length,w,c
+   881  0002EE  5C27               	subwf	identity@i,w,c
+   882  0002F0  A0D8               	btfss	status,0,c
+   883  0002F2  D7F0               	goto	l81
+   884                           
+   885                           ;main.c: 161: }
+   886                           ;main.c: 162: for (i = 0; i < length; i++)
+   887  0002F4  0E00               	movlw	0
+   888  0002F6  6E27               	movwf	identity@i,c
+   889  0002F8  D013               	goto	l83
+   890  0002FA                     
+   891                           ;main.c: 163: {
+   892                           ;main.c: 165: PORTD = identity_data[i];
+   893  0002FA  5027               	movf	identity@i,w,c
+   894  0002FC  0D01               	mullw	1
+   895  0002FE  0E15               	movlw	low identity@identity_data
+   896  000300  24F3               	addwf	prodl,w,c
+   897  000302  6ED9               	movwf	fsr2l,c
+   898  000304  0E00               	movlw	high identity@identity_data
+   899  000306  20F4               	addwfc	prodh,w,c
+   900  000308  6EDA               	movwf	fsr2h,c
+   901  00030A  50DF               	movf	indf2,w,c
+   902  00030C  6E83               	movwf	3971,c	;volatile
+   903                           
+   904                           ;main.c: 166: _delay((unsigned long)((70)*(10000000/4000.0)));
+   905  00030E  0EE4               	movlw	228
+   906  000310  6E14               	movwf	??_identity& (0+255),c
+   907  000312  0E44               	movlw	68
+   908  000314                     u787:
+   909  000314  2EE8               	decfsz	wreg,f,c
+   910  000316  D7FE               	bra	u787
+   911  000318  2E14               	decfsz	??_identity& (0+255),f,c
+   912  00031A  D7FC               	bra	u787
+   913  00031C  D000               	nop2	
+   914  00031E  2A27               	incf	identity@i,f,c
+   915  000320                     l83:
+   916  000320  5026               	movf	identity@length,w,c
+   917  000322  5C27               	subwf	identity@i,w,c
+   918  000324  B0D8               	btfsc	status,0,c
+   919  000326  0012               	return	
+   920  000328  D7E8               	goto	l84
+   921  00032A                     __end_of_identity:
+   922                           	opt stack 0
+   923                           tblptru	equ	0xFF8
+   924                           tblptrh	equ	0xFF7
+   925                           tblptrl	equ	0xFF6
+   926                           tablat	equ	0xFF5
+   927                           prodh	equ	0xFF4
+   928                           prodl	equ	0xFF3
+   929                           intcon	equ	0xFF2
+   930                           postinc0	equ	0xFEE
+   931                           wreg	equ	0xFE8
+   932                           postdec1	equ	0xFE5
+   933                           fsr1l	equ	0xFE1
+   934                           indf2	equ	0xFDF
+   935                           fsr2h	equ	0xFDA
+   936                           fsr2l	equ	0xFD9
+   937                           status	equ	0xFD8
+   938                           
+   939 ;; *************** function _get_NFC_tag *****************
+   940 ;; Defined at:
+   941 ;;		line 234 in file "main.c"
+   942 ;; Parameters:    Size  Location     Type
+   943 ;;		None
+   944 ;; Auto vars:     Size  Location     Type
+   945 ;;  i               2   31[COMRAM] int 
+   946 ;;  command1        4   25[COMRAM] unsigned char [4]
+   947 ;;  response        2   29[COMRAM] unsigned char [2]
+   948 ;; Return value:  Size  Location     Type
+   949 ;;                  1    wreg      void 
+   950 ;; Registers used:
+   951 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   952 ;; Tracked objects:
+   953 ;;		On entry : 0/0
+   954 ;;		On exit  : 0/0
+   955 ;;		Unchanged: 0/0
+   956 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   957 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   958 ;;      Locals:         8       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   959 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   960 ;;      Totals:        10       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   961 ;;Total ram usage:       10 bytes
+   962 ;; Hardware stack levels used:    1
+   963 ;; Hardware stack levels required when called:    3
+   964 ;; This function calls:
+   965 ;;		_SEND_RFID
+   966 ;;		_UART_Read
+   967 ;; This function is called by:
+   968 ;;		_main
+   969 ;; This function uses a non-reentrant model
+   970 ;;
+   971                           
+   972                           	psect	text5
+   973  000224                     __ptext5:
+   974                           	opt stack 0
+   975  000224                     _get_NFC_tag:
+   976                           	opt stack 27
+   977                           
+   978                           ;main.c: 235: unsigned char command1[] = {0x04, 0x02, 0x26, 0x07};
+   979                           
+   980                           ;incstack = 0
+   981  000224  C042  F01A         	movff	get_NFC_tag@F5732,get_NFC_tag@command1
+   982  000228  C043  F01B         	movff	get_NFC_tag@F5732+1,get_NFC_tag@command1+1
+   983  00022C  C044  F01C         	movff	get_NFC_tag@F5732+2,get_NFC_tag@command1+2
+   984  000230  C045  F01D         	movff	get_NFC_tag@F5732+3,get_NFC_tag@command1+3
+   985                           
+   986                           ;main.c: 236: unsigned char response[2];
+   987                           ;main.c: 238: TRISD = 0x00;
+   988  000234  0E00               	movlw	0
+   989  000236  6E95               	movwf	3989,c	;volatile
+   990                           
+   991                           ;main.c: 239: PORTD = 0x00;
+   992  000238  0E00               	movlw	0
+   993  00023A  6E83               	movwf	3971,c	;volatile
+   994                           
+   995                           ;main.c: 242: SEND_RFID(command1, 4);
+   996  00023C  0E1A               	movlw	low get_NFC_tag@command1
+   997  00023E  6E14               	movwf	SEND_RFID@command,c
+   998  000240  0E00               	movlw	high get_NFC_tag@command1
+   999  000242  6E15               	movwf	SEND_RFID@command+1,c
+  1000  000244  0E04               	movlw	4
+  1001  000246  6E16               	movwf	SEND_RFID@length,c
+  1002  000248  ECD8  F001         	call	_SEND_RFID	;wreg free
+  1003                           
+  1004                           ;main.c: 245: for (int i = 0; i < 2; i++) {
+  1005  00024C  0E00               	movlw	0
+  1006  00024E  6E21               	movwf	get_NFC_tag@i+1,c
+  1007  000250  0E00               	movlw	0
+  1008  000252  6E20               	movwf	get_NFC_tag@i,c
+  1009  000254                     l1346:
+  1010  000254  BE21               	btfsc	get_NFC_tag@i+1,7,c
+  1011  000256  D006               	goto	l119
+  1012  000258  5021               	movf	get_NFC_tag@i+1,w,c
+  1013  00025A  E110               	bnz	l1356
+  1014  00025C  0E02               	movlw	2
+  1015  00025E  5C20               	subwf	get_NFC_tag@i,w,c
+  1016  000260  B0D8               	btfsc	status,0,c
+  1017  000262  D00C               	goto	u710
+  1018  000264                     l119:
+  1019                           
+  1020                           ;main.c: 246: response[i] = UART_Read();
+  1021  000264  0E1E               	movlw	low get_NFC_tag@response
+  1022  000266  2420               	addwf	get_NFC_tag@i,w,c
+  1023  000268  6ED9               	movwf	fsr2l,c
+  1024  00026A  0E00               	movlw	high get_NFC_tag@response
+  1025  00026C  2021               	addwfc	get_NFC_tag@i+1,w,c
+  1026  00026E  6EDA               	movwf	fsr2h,c
+  1027  000270  EC39  F002         	call	_UART_Read	;wreg free
+  1028  000274  6EDF               	movwf	indf2,c
+  1029  000276  4A20               	infsnz	get_NFC_tag@i,f,c
+  1030  000278  2A21               	incf	get_NFC_tag@i+1,f,c
+  1031  00027A  D7EC               	goto	l1346
+  1032  00027C                     u710:
+  1033  00027C                     l1356:
+  1034                           
+  1035                           ;main.c: 247: }
+  1036                           ;main.c: 250: if (response[0] == 0x80) {
+  1037  00027C  0E80               	movlw	128
+  1038  00027E  181E               	xorwf	get_NFC_tag@response,w,c
+  1039  000280  A4D8               	btfss	status,2,c
+  1040  000282  D002               	goto	l121
+  1041                           
+  1042                           ;main.c: 251: PORTD = 0x0A;
+  1043  000284  0E0A               	movlw	10
+  1044  000286  D007               	goto	L3
+  1045  000288                     l121:
+  1046  000288  0E87               	movlw	135
+  1047  00028A  181E               	xorwf	get_NFC_tag@response,w,c
+  1048  00028C  A4D8               	btfss	status,2,c
+  1049  00028E  D002               	goto	l123
+  1050                           
+  1051                           ;main.c: 253: PORTD = 0xA0;
+  1052  000290  0EA0               	movlw	160
+  1053  000292  D001               	goto	L3
+  1054  000294                     l123:
+  1055                           
+  1056                           ;main.c: 255: PORTD = 0xAA;
+  1057  000294  0EAA               	movlw	170
+  1058  000296                     L3:
+  1059  000296  6E83               	movwf	3971,c	;volatile
+  1060                           
+  1061                           ;main.c: 256: }
+  1062                           ;main.c: 258: _delay((unsigned long)((1000)*(10000000/4000.0)));
+  1063  000298  0E0D               	movlw	13
+  1064  00029A  6E19               	movwf	(??_get_NFC_tag+1)& (0+255),c
+  1065  00029C  0EAF               	movlw	175
+  1066  00029E  6E18               	movwf	??_get_NFC_tag& (0+255),c
+  1067  0002A0  0EB6               	movlw	182
+  1068  0002A2                     u797:
+  1069  0002A2  2EE8               	decfsz	wreg,f,c
+  1070  0002A4  D7FE               	bra	u797
+  1071  0002A6  2E18               	decfsz	??_get_NFC_tag& (0+255),f,c
+  1072  0002A8  D7FC               	bra	u797
+  1073  0002AA  2E19               	decfsz	(??_get_NFC_tag+1)& (0+255),f,c
+  1074  0002AC  D7FA               	bra	u797
+  1075  0002AE  D000               	nop2	
+  1076                           
+  1077                           ;main.c: 259: PORTD = 0x00;
+  1078  0002B0  0E00               	movlw	0
+  1079  0002B2  6E83               	movwf	3971,c	;volatile
+  1080  0002B4  0012               	return		;funcret
+  1081  0002B6                     __end_of_get_NFC_tag:
+  1082                           	opt stack 0
+  1083                           tblptru	equ	0xFF8
+  1084                           tblptrh	equ	0xFF7
+  1085                           tblptrl	equ	0xFF6
+  1086                           tablat	equ	0xFF5
+  1087                           prodh	equ	0xFF4
+  1088                           prodl	equ	0xFF3
+  1089                           intcon	equ	0xFF2
+  1090                           postinc0	equ	0xFEE
+  1091                           wreg	equ	0xFE8
+  1092                           postdec1	equ	0xFE5
+  1093                           fsr1l	equ	0xFE1
+  1094                           indf2	equ	0xFDF
+  1095                           fsr2h	equ	0xFDA
+  1096                           fsr2l	equ	0xFD9
+  1097                           status	equ	0xFD8
+  1098                           
+  1099 ;; *************** function _echo *****************
+  1100 ;; Defined at:
+  1101 ;;		line 117 in file "main.c"
+  1102 ;; Parameters:    Size  Location     Type
+  1103 ;;		None
+  1104 ;; Auto vars:     Size  Location     Type
+  1105 ;;  command         1   20[COMRAM] unsigned char 
+  1106 ;;  data            1   19[COMRAM] unsigned char 
+  1107 ;; Return value:  Size  Location     Type
+  1108 ;;                  1    wreg      unsigned char 
+  1109 ;; Registers used:
+  1110 ;;		wreg, status,2, status,0, cstack
+  1111 ;; Tracked objects:
+  1112 ;;		On entry : 0/0
+  1113 ;;		On exit  : 0/0
+  1114 ;;		Unchanged: 0/0
+  1115 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1116 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1117 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1118 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1119 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1120 ;;Total ram usage:        2 bytes
+  1121 ;; Hardware stack levels used:    1
+  1122 ;; Hardware stack levels required when called:    2
+  1123 ;; This function calls:
+  1124 ;;		_UART_Write
+  1125 ;;		_read_echo
+  1126 ;; This function is called by:
+  1127 ;;		_main
+  1128 ;; This function uses a non-reentrant model
+  1129 ;;
+  1130                           
+  1131                           	psect	text6
+  1132  000416                     __ptext6:
+  1133                           	opt stack 0
+  1134  000416                     _echo:
+  1135                           	opt stack 28
+  1136                           
+  1137                           ;main.c: 119: char data;
+  1138                           ;main.c: 120: unsigned char command = 0x55;
+  1139                           
+  1140                           ;incstack = 0
+  1141  000416  0E55               	movlw	85
+  1142  000418  6E15               	movwf	echo@command,c
+  1143                           
+  1144                           ;main.c: 121: UART_Write(command);
+  1145  00041A  5015               	movf	echo@command,w,c
+  1146  00041C  EC33  F002         	call	_UART_Write
+  1147                           
+  1148                           ;main.c: 122: PORTD=0x0F;
+  1149  000420  0E0F               	movlw	15
+  1150  000422  6E83               	movwf	3971,c	;volatile
+  1151                           
+  1152                           ;main.c: 123: data=read_echo();
+  1153  000424  EC19  F002         	call	_read_echo	;wreg free
+  1154  000428  6E14               	movwf	echo@data,c
+  1155                           
+  1156                           ;main.c: 124: PORTD=0xF0;
+  1157  00042A  0EF0               	movlw	240
+  1158  00042C  6E83               	movwf	3971,c	;volatile
+  1159                           
+  1160                           ;main.c: 125: return data;
+  1161  00042E  5014               	movf	echo@data,w,c
+  1162  000430  0012               	return	
+  1163  000432                     __end_of_echo:
+  1164                           	opt stack 0
+  1165                           tblptru	equ	0xFF8
+  1166                           tblptrh	equ	0xFF7
+  1167                           tblptrl	equ	0xFF6
+  1168                           tablat	equ	0xFF5
+  1169                           prodh	equ	0xFF4
+  1170                           prodl	equ	0xFF3
+  1171                           intcon	equ	0xFF2
+  1172                           postinc0	equ	0xFEE
+  1173                           wreg	equ	0xFE8
+  1174                           postdec1	equ	0xFE5
+  1175                           fsr1l	equ	0xFE1
+  1176                           indf2	equ	0xFDF
+  1177                           fsr2h	equ	0xFDA
+  1178                           fsr2l	equ	0xFD9
+  1179                           status	equ	0xFD8
+  1180                           
+  1181 ;; *************** function _read_echo *****************
+  1182 ;; Defined at:
+  1183 ;;		line 100 in file "main.c"
+  1184 ;; Parameters:    Size  Location     Type
+  1185 ;;		None
+  1186 ;; Auto vars:     Size  Location     Type
+  1187 ;;		None
+  1188 ;; Return value:  Size  Location     Type
+  1189 ;;                  1    wreg      unsigned char 
+  1190 ;; Registers used:
+  1191 ;;		wreg, status,2, status,0
+  1192 ;; Tracked objects:
+  1193 ;;		On entry : 0/0
+  1194 ;;		On exit  : 0/0
+  1195 ;;		Unchanged: 0/0
+  1196 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1197 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1198 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1199 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1200 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1201 ;;Total ram usage:        0 bytes
+  1202 ;; Hardware stack levels used:    1
+  1203 ;; Hardware stack levels required when called:    1
+  1204 ;; This function calls:
+  1205 ;;		Nothing
+  1206 ;; This function is called by:
+  1207 ;;		_echo
+  1208 ;; This function uses a non-reentrant model
+  1209 ;;
+  1210                           
+  1211                           	psect	text7
+  1212  000432                     __ptext7:
+  1213                           	opt stack 0
+  1214  000432                     _read_echo:
+  1215                           	opt stack 28
+  1216                           
+  1217                           ;main.c: 103: while (!PIR1bits.RC1IF && !flag_tmr0);
+  1218                           
+  1219                           ;incstack = 0
+  1220  000432  BA9E               	btfsc	3998,5,c	;volatile
+  1221  000434  D003               	goto	u40
+  1222  000436  504A               	movf	_flag_tmr0,w,c
+  1223  000438  B4D8               	btfsc	status,2,c
+  1224  00043A  D7FB               	goto	_read_echo
+  1225  00043C                     u40:
+  1226                           
+  1227                           ;main.c: 105: if (flag_tmr0==1)
+  1228  00043C  044A               	decf	_flag_tmr0,w,c
+  1229  00043E  A4D8               	btfss	status,2,c
+  1230  000440  D004               	goto	l66
+  1231                           
+  1232                           ;main.c: 106: {
+  1233                           ;main.c: 107: flag_tmr0 = 0;
+  1234  000442  0E00               	movlw	0
+  1235  000444  6E4A               	movwf	_flag_tmr0,c
+  1236                           
+  1237                           ;main.c: 108: return 0x0F;
+  1238  000446  0E0F               	movlw	15
+  1239                           
+  1240                           ;main.c: 109: }
+  1241  000448  0012               	return	
+  1242  00044A                     l66:
+  1243                           
+  1244                           ;main.c: 110: else
+  1245                           ;main.c: 111: {
+  1246                           ;main.c: 112: return RCREG1;
+  1247  00044A  50AE               	movf	4014,w,c	;volatile
+  1248  00044C  0012               	return	
+  1249  00044E                     __end_of_read_echo:
+  1250                           	opt stack 0
+  1251                           tblptru	equ	0xFF8
+  1252                           tblptrh	equ	0xFF7
+  1253                           tblptrl	equ	0xFF6
+  1254                           tablat	equ	0xFF5
+  1255                           prodh	equ	0xFF4
+  1256                           prodl	equ	0xFF3
+  1257                           intcon	equ	0xFF2
+  1258                           postinc0	equ	0xFEE
+  1259                           wreg	equ	0xFE8
+  1260                           postdec1	equ	0xFE5
+  1261                           fsr1l	equ	0xFE1
+  1262                           indf2	equ	0xFDF
+  1263                           fsr2h	equ	0xFDA
+  1264                           fsr2l	equ	0xFD9
+  1265                           status	equ	0xFD8
+  1266                           
+  1267 ;; *************** function _calibration *****************
+  1268 ;; Defined at:
+  1269 ;;		line 170 in file "main.c"
+  1270 ;; Parameters:    Size  Location     Type
+  1271 ;;		None
+  1272 ;; Auto vars:     Size  Location     Type
+  1273 ;;  j               2   29[BANK0 ] int 
+  1274 ;;  i               2   27[BANK0 ] int 
+  1275 ;;  command        16    0[BANK0 ] unsigned char [16]
+  1276 ;;  power_values    8   16[BANK0 ] unsigned char [8]
+  1277 ;;  response        3   24[BANK0 ] unsigned char [3]
+  1278 ;; Return value:  Size  Location     Type
+  1279 ;;                  1    wreg      void 
+  1280 ;; Registers used:
+  1281 ;;		wreg, fsr1l, fsr1h, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+  1282 ;; Tracked objects:
+  1283 ;;		On entry : 0/0
+  1284 ;;		On exit  : 0/0
+  1285 ;;		Unchanged: 0/0
+  1286 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1287 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1288 ;;      Locals:         0      31       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1289 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1290 ;;      Totals:         2      31       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1291 ;;Total ram usage:       33 bytes
+  1292 ;; Hardware stack levels used:    1
+  1293 ;; Hardware stack levels required when called:    3
+  1294 ;; This function calls:
+  1295 ;;		_SEND_RFID
+  1296 ;;		_UART_Read
+  1297 ;; This function is called by:
+  1298 ;;		_main
+  1299 ;; This function uses a non-reentrant model
+  1300 ;;
+  1301                           
+  1302                           	psect	text8
+  1303  000012                     __ptext8:
+  1304                           	opt stack 0
+  1305  000012                     _calibration:
+  1306                           	opt stack 27
+  1307                           
+  1308                           ;main.c: 171: unsigned char command[16] = {0x07, 0x0E, 0x03, 0xA1, 0x00, 0xF8, 0x01, 0x1
+      +                          8, 0x00, 0x20, 0x60, 0x60, 0x00, 0x00, 0x3F, 0x01};
+  1309                           
+  1310                           ;incstack = 0
+  1311  000012  EE20  F02A         	lfsr	2,calibration@F5717
+  1312  000016  EE10  F060         	lfsr	1,calibration@command
+  1313  00001A  0E0F               	movlw	15
+  1314  00001C                     u571:
+  1315  00001C  CFDB FFE3          	movff	plusw2,plusw1
+  1316  000020  06E8               	decf	wreg,f,c
+  1317  000022  E2FC               	bc	u571
+  1318                           
+  1319                           ;main.c: 172: unsigned char response[3];
+  1320                           ;main.c: 173: unsigned char power_values[] = {0x00, 0xFC, 0x7C, 0x3C, 0x5C, 0x6C, 0x74, 
+      +                          0x70};
+  1321  000024  EE20  F03A         	lfsr	2,calibration@F5720
+  1322  000028  EE10  F070         	lfsr	1,calibration@power_values
+  1323  00002C  0E07               	movlw	7
+  1324  00002E                     u581:
+  1325  00002E  CFDB FFE3          	movff	plusw2,plusw1
+  1326  000032  06E8               	decf	wreg,f,c
+  1327  000034  E2FC               	bc	u581
+  1328                           
+  1329                           ;main.c: 175: TRISD = 0x00;
+  1330  000036  0E00               	movlw	0
+  1331  000038  6E95               	movwf	3989,c	;volatile
+  1332                           
+  1333                           ;main.c: 176: PORTD = 0x00;
+  1334  00003A  0E00               	movlw	0
+  1335  00003C  6E83               	movwf	3971,c	;volatile
+  1336                           
+  1337                           ;main.c: 178: for (int i = 0; i < 8; i++) {
+  1338  00003E  0E00               	movlw	0
+  1339  000040  0100               	movlb	0	; () banked
+  1340  000042  6F7C               	movwf	(calibration@i+1)& (0+255),b
+  1341  000044  0E00               	movlw	0
+  1342  000046  6F7B               	movwf	calibration@i& (0+255),b
+  1343  000048                     l1272:
+  1344                           
+  1345                           ; BSR set to: 0
+  1346  000048  BF7C               	btfsc	(calibration@i+1)& (0+255),7,b
+  1347  00004A  D006               	goto	l93
+  1348  00004C  517C               	movf	(calibration@i+1)& (0+255),w,b
+  1349  00004E  E14A               	bnz	l1304
+  1350  000050  0E08               	movlw	8
+  1351  000052  5D7B               	subwf	calibration@i& (0+255),w,b
+  1352  000054  B0D8               	btfsc	status,0,c
+  1353  000056  D046               	goto	u640
+  1354  000058                     l93:
+  1355                           
+  1356                           ; BSR set to: 0
+  1357                           ;main.c: 179: command[12] = power_values[i];
+  1358                           
+  1359                           ; BSR set to: 0
+  1360  000058  0E70               	movlw	low calibration@power_values
+  1361  00005A  257B               	addwf	calibration@i& (0+255),w,b
+  1362  00005C  6ED9               	movwf	fsr2l,c
+  1363  00005E  0E00               	movlw	high calibration@power_values
+  1364  000060  217C               	addwfc	(calibration@i+1)& (0+255),w,b
+  1365  000062  6EDA               	movwf	fsr2h,c
+  1366  000064  50DF               	movf	indf2,w,c
+  1367  000066  6F6C               	movwf	(calibration@command+12)& (0+255),b
+  1368                           
+  1369                           ; BSR set to: 0
+  1370                           ;main.c: 180: SEND_RFID(command, 16);
+  1371  000068  0E60               	movlw	low calibration@command
+  1372  00006A  6E14               	movwf	SEND_RFID@command,c
+  1373  00006C  0E00               	movlw	high calibration@command
+  1374  00006E  6E15               	movwf	SEND_RFID@command+1,c
+  1375  000070  0E10               	movlw	16
+  1376  000072  6E16               	movwf	SEND_RFID@length,c
+  1377  000074  ECD8  F001         	call	_SEND_RFID	;wreg free
+  1378                           
+  1379                           ;main.c: 183: for (int j = 0; j < 3; j++) {
+  1380  000078  0E00               	movlw	0
+  1381  00007A  0100               	movlb	0	; () banked
+  1382  00007C  6F7E               	movwf	(calibration@j+1)& (0+255),b
+  1383  00007E  0E00               	movlw	0
+  1384  000080  6F7D               	movwf	calibration@j& (0+255),b
+  1385  000082                     l1282:
+  1386                           
+  1387                           ; BSR set to: 0
+  1388  000082  BF7E               	btfsc	(calibration@j+1)& (0+255),7,b
+  1389  000084  D006               	goto	l95
+  1390  000086  517E               	movf	(calibration@j+1)& (0+255),w,b
+  1391  000088  E111               	bnz	l1292
+  1392  00008A  0E03               	movlw	3
+  1393  00008C  5D7D               	subwf	calibration@j& (0+255),w,b
+  1394  00008E  B0D8               	btfsc	status,0,c
+  1395  000090  D00D               	goto	u610
+  1396  000092                     l95:
+  1397                           
+  1398                           ; BSR set to: 0
+  1399                           ;main.c: 184: response[j] = UART_Read();
+  1400                           
+  1401                           ; BSR set to: 0
+  1402  000092  0E78               	movlw	low calibration@response
+  1403  000094  257D               	addwf	calibration@j& (0+255),w,b
+  1404  000096  6ED9               	movwf	fsr2l,c
+  1405  000098  0E00               	movlw	high calibration@response
+  1406  00009A  217E               	addwfc	(calibration@j+1)& (0+255),w,b
+  1407  00009C  6EDA               	movwf	fsr2h,c
+  1408  00009E  EC39  F002         	call	_UART_Read	;wreg free
+  1409  0000A2  6EDF               	movwf	indf2,c
+  1410  0000A4  0100               	movlb	0	; () banked
+  1411  0000A6  4B7D               	infsnz	calibration@j& (0+255),f,b
+  1412  0000A8  2B7E               	incf	(calibration@j+1)& (0+255),f,b
+  1413  0000AA  D7EB               	goto	l1282
+  1414  0000AC                     u610:
+  1415  0000AC                     l1292:
+  1416                           
+  1417                           ; BSR set to: 0
+  1418                           ;main.c: 185: }
+  1419                           ;main.c: 188: if (response[2] == 0x02) {
+  1420  0000AC  0E02               	movlw	2
+  1421  0000AE  197A               	xorwf	(calibration@response+2)& (0+255),w,b
+  1422  0000B0  A4D8               	btfss	status,2,c
+  1423  0000B2  D002               	goto	l97
+  1424                           
+  1425                           ; BSR set to: 0
+  1426                           ;main.c: 189: PORTD = 0x0F;
+  1427  0000B4  0E0F               	movlw	15
+  1428  0000B6  D004               	goto	L4
+  1429  0000B8                     l97:
+  1430                           
+  1431                           ; BSR set to: 0
+  1432                           
+  1433                           ; BSR set to: 0
+  1434  0000B8  057A               	decf	(calibration@response+2)& (0+255),w,b
+  1435  0000BA  A4D8               	btfss	status,2,c
+  1436  0000BC  D003               	goto	l99
+  1437                           
+  1438                           ; BSR set to: 0
+  1439                           ;main.c: 191: PORTD = 0xF0;
+  1440  0000BE  0EF0               	movlw	240
+  1441  0000C0                     L4:
+  1442  0000C0  6E83               	movwf	3971,c	;volatile
+  1443                           
+  1444                           ;main.c: 192: } else {
+  1445  0000C2  D001               	goto	l100
+  1446  0000C4                     l99:
+  1447                           
+  1448                           ; BSR set to: 0
+  1449                           ;main.c: 193: PORTD = 0xFF;
+  1450  0000C4  6883               	setf	3971,c	;volatile
+  1451  0000C6                     l100:
+  1452                           
+  1453                           ; BSR set to: 0
+  1454                           ;main.c: 194: }
+  1455                           ;main.c: 196: _delay((unsigned long)((500)*(10000000/4000.0)));
+  1456                           
+  1457                           ; BSR set to: 0
+  1458                           
+  1459                           ; BSR set to: 0
+  1460  0000C6  0E07               	movlw	7
+  1461  0000C8  6E19               	movwf	(??_calibration+1)& (0+255),c
+  1462  0000CA  0E58               	movlw	88
+  1463  0000CC  6E18               	movwf	??_calibration& (0+255),c
+  1464  0000CE  0E5A               	movlw	90
+  1465  0000D0                     u807:
+  1466  0000D0  2EE8               	decfsz	wreg,f,c
+  1467  0000D2  D7FE               	bra	u807
+  1468  0000D4  2E18               	decfsz	??_calibration& (0+255),f,c
+  1469  0000D6  D7FC               	bra	u807
+  1470  0000D8  2E19               	decfsz	(??_calibration+1)& (0+255),f,c
+  1471  0000DA  D7FA               	bra	u807
+  1472  0000DC  0100               	movlb	0	; () banked
+  1473  0000DE  4B7B               	infsnz	calibration@i& (0+255),f,b
+  1474  0000E0  2B7C               	incf	(calibration@i+1)& (0+255),f,b
+  1475  0000E2  D7B2               	goto	l1272
+  1476  0000E4                     u640:
+  1477  0000E4                     l1304:
+  1478                           
+  1479                           ; BSR set to: 0
+  1480                           ;main.c: 197: }
+  1481                           ;main.c: 199: PORTD = 0x00;
+  1482  0000E4  0E00               	movlw	0
+  1483  0000E6  6E83               	movwf	3971,c	;volatile
+  1484                           
+  1485                           ; BSR set to: 0
+  1486  0000E8  0012               	return		;funcret
+  1487  0000EA                     __end_of_calibration:
+  1488                           	opt stack 0
+  1489                           tblptru	equ	0xFF8
+  1490                           tblptrh	equ	0xFF7
+  1491                           tblptrl	equ	0xFF6
+  1492                           tablat	equ	0xFF5
+  1493                           prodh	equ	0xFF4
+  1494                           prodl	equ	0xFF3
+  1495                           intcon	equ	0xFF2
+  1496                           postinc0	equ	0xFEE
+  1497                           wreg	equ	0xFE8
+  1498                           postdec1	equ	0xFE5
+  1499                           plusw1	equ	0xFE3
+  1500                           fsr1l	equ	0xFE1
+  1501                           indf2	equ	0xFDF
+  1502                           plusw2	equ	0xFDB
+  1503                           fsr2h	equ	0xFDA
+  1504                           fsr2l	equ	0xFD9
+  1505                           status	equ	0xFD8
+  1506                           
+  1507 ;; *************** function _UART_Read *****************
+  1508 ;; Defined at:
+  1509 ;;		line 91 in file "main.c"
+  1510 ;; Parameters:    Size  Location     Type
+  1511 ;;		None
+  1512 ;; Auto vars:     Size  Location     Type
+  1513 ;;		None
+  1514 ;; Return value:  Size  Location     Type
+  1515 ;;                  1    wreg      unsigned char 
+  1516 ;; Registers used:
+  1517 ;;		wreg, status,2
+  1518 ;; Tracked objects:
+  1519 ;;		On entry : 0/0
+  1520 ;;		On exit  : 0/0
+  1521 ;;		Unchanged: 0/0
+  1522 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1523 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1524 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1525 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1526 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1527 ;;Total ram usage:        0 bytes
+  1528 ;; Hardware stack levels used:    1
+  1529 ;; Hardware stack levels required when called:    1
+  1530 ;; This function calls:
+  1531 ;;		Nothing
+  1532 ;; This function is called by:
+  1533 ;;		_identity
+  1534 ;;		_calibration
+  1535 ;;		_select_protocol
+  1536 ;;		_get_NFC_tag
+  1537 ;; This function uses a non-reentrant model
+  1538 ;;
+  1539                           
+  1540                           	psect	text9
+  1541  000472                     __ptext9:
+  1542                           	opt stack 0
+  1543  000472                     _UART_Read:
+  1544                           	opt stack 28
+  1545                           
+  1546                           ;main.c: 93: while (!PIR1bits.RC1IF);
+  1547                           
+  1548                           ; BSR set to: 0
+  1549                           ;incstack = 0
+  1550  000472  AA9E               	btfss	3998,5,c	;volatile
+  1551  000474  D7FE               	goto	_UART_Read
+  1552                           
+  1553                           ;main.c: 94: return RCREG1;
+  1554  000476  50AE               	movf	4014,w,c	;volatile
+  1555  000478  0012               	return	
+  1556  00047A                     __end_of_UART_Read:
+  1557                           	opt stack 0
+  1558                           tblptru	equ	0xFF8
+  1559                           tblptrh	equ	0xFF7
+  1560                           tblptrl	equ	0xFF6
+  1561                           tablat	equ	0xFF5
+  1562                           prodh	equ	0xFF4
+  1563                           prodl	equ	0xFF3
+  1564                           intcon	equ	0xFF2
+  1565                           postinc0	equ	0xFEE
+  1566                           wreg	equ	0xFE8
+  1567                           postdec1	equ	0xFE5
+  1568                           plusw1	equ	0xFE3
+  1569                           fsr1l	equ	0xFE1
+  1570                           indf2	equ	0xFDF
+  1571                           plusw2	equ	0xFDB
+  1572                           fsr2h	equ	0xFDA
+  1573                           fsr2l	equ	0xFD9
+  1574                           status	equ	0xFD8
+  1575                           
+  1576 ;; *************** function _SEND_RFID *****************
+  1577 ;; Defined at:
+  1578 ;;		line 131 in file "main.c"
+  1579 ;; Parameters:    Size  Location     Type
+  1580 ;;  command         2   19[COMRAM] PTR unsigned char 
+  1581 ;;		 -> get_NFC_tag@command1(4), select_protocol@command(4), calibration@command(16), 
+  1582 ;;  length          1   21[COMRAM] unsigned char 
+  1583 ;; Auto vars:     Size  Location     Type
+  1584 ;;  i               1   22[COMRAM] unsigned char 
+  1585 ;; Return value:  Size  Location     Type
+  1586 ;;                  1    wreg      void 
+  1587 ;; Registers used:
+  1588 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+  1589 ;; Tracked objects:
+  1590 ;;		On entry : 0/0
+  1591 ;;		On exit  : 0/0
+  1592 ;;		Unchanged: 0/0
+  1593 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1594 ;;      Params:         3       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1595 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1596 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1597 ;;      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1598 ;;Total ram usage:        4 bytes
+  1599 ;; Hardware stack levels used:    1
+  1600 ;; Hardware stack levels required when called:    2
+  1601 ;; This function calls:
+  1602 ;;		_UART_Write
+  1603 ;; This function is called by:
+  1604 ;;		_calibration
+  1605 ;;		_select_protocol
+  1606 ;;		_get_NFC_tag
+  1607 ;; This function uses a non-reentrant model
+  1608 ;;
+  1609                           
+  1610                           	psect	text10
+  1611  0003B0                     __ptext10:
+  1612                           	opt stack 0
+  1613  0003B0                     _SEND_RFID:
+  1614                           	opt stack 27
+  1615                           
+  1616                           ;main.c: 133: for (unsigned char i = 0; i < length; i++)
+  1617                           
+  1618                           ;incstack = 0
+  1619  0003B0  0E00               	movlw	0
+  1620  0003B2  6E17               	movwf	SEND_RFID@i,c
+  1621  0003B4  D00C               	goto	l74
+  1622  0003B6                     
+  1623                           ;main.c: 134: {
+  1624                           ;main.c: 135: UART_Write(command[i]);
+  1625  0003B6  5017               	movf	SEND_RFID@i,w,c
+  1626  0003B8  0D01               	mullw	1
+  1627  0003BA  50F3               	movf	prodl,w,c
+  1628  0003BC  2414               	addwf	SEND_RFID@command,w,c
+  1629  0003BE  6ED9               	movwf	fsr2l,c
+  1630  0003C0  50F4               	movf	prodh,w,c
+  1631  0003C2  2015               	addwfc	SEND_RFID@command+1,w,c
+  1632  0003C4  6EDA               	movwf	fsr2h,c
+  1633  0003C6  50DF               	movf	indf2,w,c
+  1634  0003C8  EC33  F002         	call	_UART_Write
+  1635  0003CC  2A17               	incf	SEND_RFID@i,f,c
+  1636  0003CE                     l74:
+  1637  0003CE  5016               	movf	SEND_RFID@length,w,c
+  1638  0003D0  5C17               	subwf	SEND_RFID@i,w,c
+  1639  0003D2  B0D8               	btfsc	status,0,c
+  1640  0003D4  0012               	return	
+  1641  0003D6  D7EF               	goto	l75
+  1642  0003D8                     __end_of_SEND_RFID:
+  1643                           	opt stack 0
+  1644                           tblptru	equ	0xFF8
+  1645                           tblptrh	equ	0xFF7
+  1646                           tblptrl	equ	0xFF6
+  1647                           tablat	equ	0xFF5
+  1648                           prodh	equ	0xFF4
+  1649                           prodl	equ	0xFF3
+  1650                           intcon	equ	0xFF2
+  1651                           postinc0	equ	0xFEE
+  1652                           wreg	equ	0xFE8
+  1653                           postdec1	equ	0xFE5
+  1654                           plusw1	equ	0xFE3
+  1655                           fsr1l	equ	0xFE1
+  1656                           indf2	equ	0xFDF
+  1657                           plusw2	equ	0xFDB
+  1658                           fsr2h	equ	0xFDA
+  1659                           fsr2l	equ	0xFD9
+  1660                           status	equ	0xFD8
+  1661                           
+  1662 ;; *************** function _UART_Write *****************
+  1663 ;; Defined at:
+  1664 ;;		line 84 in file "main.c"
+  1665 ;; Parameters:    Size  Location     Type
+  1666 ;;  data            1    wreg     unsigned char 
+  1667 ;; Auto vars:     Size  Location     Type
+  1668 ;;  data            1   18[COMRAM] unsigned char 
+  1669 ;; Return value:  Size  Location     Type
+  1670 ;;                  1    wreg      void 
+  1671 ;; Registers used:
+  1672 ;;		wreg
+  1673 ;; Tracked objects:
+  1674 ;;		On entry : 0/0
+  1675 ;;		On exit  : 0/0
+  1676 ;;		Unchanged: 0/0
+  1677 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1678 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1679 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1680 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1681 ;;      Totals:         1       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1682 ;;Total ram usage:        1 bytes
+  1683 ;; Hardware stack levels used:    1
+  1684 ;; Hardware stack levels required when called:    1
+  1685 ;; This function calls:
+  1686 ;;		Nothing
+  1687 ;; This function is called by:
+  1688 ;;		_echo
+  1689 ;;		_SEND_RFID
+  1690 ;;		_identity
+  1691 ;; This function uses a non-reentrant model
+  1692 ;;
+  1693                           
+  1694                           	psect	text11
+  1695  000466                     __ptext11:
+  1696                           	opt stack 0
+  1697  000466                     _UART_Write:
+  1698                           	opt stack 27
+  1699                           
+  1700                           ;incstack = 0
+  1701                           ;UART_Write@data stored from wreg
+  1702  000466  6E13               	movwf	UART_Write@data,c
+  1703  000468                     
+  1704                           ;main.c: 86: while (!PIR1bits.TX1IF);
+  1705  000468  A89E               	btfss	3998,4,c	;volatile
+  1706  00046A  D7FE               	goto	l1208
+  1707                           
+  1708                           ;main.c: 87: TXREG1 = data;
+  1709  00046C  C013  FFAD         	movff	UART_Write@data,4013	;volatile
+  1710  000470  0012               	return		;funcret
+  1711  000472                     __end_of_UART_Write:
+  1712                           	opt stack 0
+  1713                           tblptru	equ	0xFF8
+  1714                           tblptrh	equ	0xFF7
+  1715                           tblptrl	equ	0xFF6
+  1716                           tablat	equ	0xFF5
+  1717                           prodh	equ	0xFF4
+  1718                           prodl	equ	0xFF3
+  1719                           intcon	equ	0xFF2
+  1720                           postinc0	equ	0xFEE
+  1721                           wreg	equ	0xFE8
+  1722                           postdec1	equ	0xFE5
+  1723                           plusw1	equ	0xFE3
+  1724                           fsr1l	equ	0xFE1
+  1725                           indf2	equ	0xFDF
+  1726                           plusw2	equ	0xFDB
+  1727                           fsr2h	equ	0xFDA
+  1728                           fsr2l	equ	0xFD9
+  1729                           status	equ	0xFD8
+  1730                           
+  1731 ;; *************** function _isr *****************
+  1732 ;; Defined at:
+  1733 ;;		line 53 in file "main.c"
+  1734 ;; Parameters:    Size  Location     Type
+  1735 ;;		None
+  1736 ;; Auto vars:     Size  Location     Type
+  1737 ;;		None
+  1738 ;; Return value:  Size  Location     Type
+  1739 ;;                  1    wreg      void 
+  1740 ;; Registers used:
+  1741 ;;		wreg, status,2
+  1742 ;; Tracked objects:
+  1743 ;;		On entry : 0/0
+  1744 ;;		On exit  : 0/0
+  1745 ;;		Unchanged: 0/0
+  1746 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+  1747 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1748 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1749 ;;      Temps:         18       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1750 ;;      Totals:        18       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+  1751 ;;Total ram usage:       18 bytes
+  1752 ;; Hardware stack levels used:    1
+  1753 ;; This function calls:
+  1754 ;;		Nothing
+  1755 ;; This function is called by:
+  1756 ;;		Interrupt level 2
+  1757 ;; This function uses a non-reentrant model
+  1758 ;;
+  1759                           
+  1760                           	psect	intcode
+  1761  000008                     __pintcode:
+  1762                           	opt stack 0
+  1763  000008                     _isr:
+  1764                           	opt stack 27
+  1765                           
+  1766                           ;incstack = 0
+  1767  000008  824B               	bsf	btemp,1,c	;set compiler interrupt flag (level 2)
+  1768  00000A  ED75  F000         	call	int_func,f	;refresh shadow registers
+  1769                           tblptru	equ	0xFF8
+  1770                           tblptrh	equ	0xFF7
+  1771                           tblptrl	equ	0xFF6
+  1772                           tablat	equ	0xFF5
+  1773                           prodh	equ	0xFF4
+  1774                           prodl	equ	0xFF3
+  1775                           intcon	equ	0xFF2
+  1776                           postinc0	equ	0xFEE
+  1777                           wreg	equ	0xFE8
+  1778                           postdec1	equ	0xFE5
+  1779                           plusw1	equ	0xFE3
+  1780                           fsr1l	equ	0xFE1
+  1781                           indf2	equ	0xFDF
+  1782                           plusw2	equ	0xFDB
+  1783                           fsr2h	equ	0xFDA
+  1784                           fsr2l	equ	0xFD9
+  1785                           status	equ	0xFD8
+  1786                           
+  1787                           	psect	intcode_body
+  1788  0000EA                     __pintcode_body:
+  1789                           	opt stack 27
+  1790  0000EA                     int_func:
+  1791                           	opt stack 27
+  1792  0000EA  0006               	pop		; remove dummy address from shadow register refresh
+  1793  0000EC  CFFA F001          	movff	pclath,??_isr
+  1794  0000F0  CFFB F002          	movff	pclatu,??_isr+1
+  1795  0000F4  CFE9 F003          	movff	fsr0l,??_isr+2
+  1796  0000F8  CFEA F004          	movff	fsr0h,??_isr+3
+  1797  0000FC  CFE1 F005          	movff	fsr1l,??_isr+4
+  1798  000100  CFE2 F006          	movff	fsr1h,??_isr+5
+  1799  000104  CFD9 F007          	movff	fsr2l,??_isr+6
+  1800  000108  CFDA F008          	movff	fsr2h,??_isr+7
+  1801  00010C  CFF3 F009          	movff	prodl,??_isr+8
+  1802  000110  CFF4 F00A          	movff	prodh,??_isr+9
+  1803  000114  CFF6 F00B          	movff	tblptrl,??_isr+10
+  1804  000118  CFF7 F00C          	movff	tblptrh,??_isr+11
+  1805  00011C  CFF8 F00D          	movff	tblptru,??_isr+12
+  1806  000120  CFF5 F00E          	movff	tablat,??_isr+13
+  1807  000124  C04B  F00F         	movff	btemp,??_isr+14
+  1808  000128  C04C  F010         	movff	btemp+1,??_isr+15
+  1809  00012C  C04D  F011         	movff	btemp+2,??_isr+16
+  1810  000130  C04E  F012         	movff	btemp+3,??_isr+17
+  1811                           
+  1812                           ;main.c: 55: if (INTCONbits.TMR0IE && INTCONbits.TMR0IF)
+  1813  000134  BAF2               	btfsc	intcon,5,c	;volatile
+  1814  000136  A4F2               	btfss	intcon,2,c	;volatile
+  1815  000138  D003               	goto	i2l42
+  1816                           
+  1817                           ;main.c: 56: {
+  1818                           ;main.c: 57: flag_tmr0 = 1;
+  1819  00013A  0E01               	movlw	1
+  1820  00013C  6E4A               	movwf	_flag_tmr0,c
+  1821                           
+  1822                           ;main.c: 58: INTCONbits.TMR0IF = 0;
+  1823  00013E  94F2               	bcf	intcon,2,c	;volatile
+  1824  000140                     i2l42:
+  1825  000140  C012  F04E         	movff	??_isr+17,btemp+3
+  1826  000144  C011  F04D         	movff	??_isr+16,btemp+2
+  1827  000148  C010  F04C         	movff	??_isr+15,btemp+1
+  1828  00014C  C00F  F04B         	movff	??_isr+14,btemp
+  1829  000150  C00E  FFF5         	movff	??_isr+13,tablat
+  1830  000154  C00D  FFF8         	movff	??_isr+12,tblptru
+  1831  000158  C00C  FFF7         	movff	??_isr+11,tblptrh
+  1832  00015C  C00B  FFF6         	movff	??_isr+10,tblptrl
+  1833  000160  C00A  FFF4         	movff	??_isr+9,prodh
+  1834  000164  C009  FFF3         	movff	??_isr+8,prodl
+  1835  000168  C008  FFDA         	movff	??_isr+7,fsr2h
+  1836  00016C  C007  FFD9         	movff	??_isr+6,fsr2l
+  1837  000170  C006  FFE2         	movff	??_isr+5,fsr1h
+  1838  000174  C005  FFE1         	movff	??_isr+4,fsr1l
+  1839  000178  C004  FFEA         	movff	??_isr+3,fsr0h
+  1840  00017C  C003  FFE9         	movff	??_isr+2,fsr0l
+  1841  000180  C002  FFFB         	movff	??_isr+1,pclatu
+  1842  000184  C001  FFFA         	movff	??_isr,pclath
+  1843  000188  924B               	bcf	btemp,1,c	;clear compiler interrupt flag (level 2)
+  1844  00018A  0011               	retfie		f
+  1845  00018C                     __end_of_isr:
+  1846                           	opt stack 0
+  1847  0000                     pclatu	equ	0xFFB
+  1848                           pclath	equ	0xFFA
+  1849                           tblptru	equ	0xFF8
+  1850                           tblptrh	equ	0xFF7
+  1851                           tblptrl	equ	0xFF6
+  1852                           tablat	equ	0xFF5
+  1853                           prodh	equ	0xFF4
+  1854                           prodl	equ	0xFF3
+  1855                           intcon	equ	0xFF2
+  1856                           postinc0	equ	0xFEE
+  1857                           fsr0h	equ	0xFEA
+  1858                           fsr0l	equ	0xFE9
+  1859                           wreg	equ	0xFE8
+  1860                           postdec1	equ	0xFE5
+  1861                           plusw1	equ	0xFE3
+  1862                           fsr1h	equ	0xFE2
+  1863                           fsr1l	equ	0xFE1
+  1864                           indf2	equ	0xFDF
+  1865                           plusw2	equ	0xFDB
+  1866                           fsr2h	equ	0xFDA
+  1867                           fsr2l	equ	0xFD9
+  1868                           status	equ	0xFD8
+  1869                           pclatu	equ	0xFFB
+  1870                           pclath	equ	0xFFA
+  1871                           tblptru	equ	0xFF8
+  1872                           tblptrh	equ	0xFF7
+  1873                           tblptrl	equ	0xFF6
+  1874                           tablat	equ	0xFF5
+  1875                           prodh	equ	0xFF4
+  1876                           prodl	equ	0xFF3
+  1877                           intcon	equ	0xFF2
+  1878                           postinc0	equ	0xFEE
+  1879                           fsr0h	equ	0xFEA
+  1880                           fsr0l	equ	0xFE9
+  1881                           wreg	equ	0xFE8
+  1882                           postdec1	equ	0xFE5
+  1883                           plusw1	equ	0xFE3
+  1884                           fsr1h	equ	0xFE2
+  1885                           fsr1l	equ	0xFE1
+  1886                           indf2	equ	0xFDF
+  1887                           plusw2	equ	0xFDB
+  1888                           fsr2h	equ	0xFDA
+  1889                           fsr2l	equ	0xFD9
+  1890                           status	equ	0xFD8
+  1891                           
+  1892                           	psect	rparam
+  1893  0000                     pclatu	equ	0xFFB
+  1894                           pclath	equ	0xFFA
+  1895                           tblptru	equ	0xFF8
+  1896                           tblptrh	equ	0xFF7
+  1897                           tblptrl	equ	0xFF6
+  1898                           tablat	equ	0xFF5
+  1899                           prodh	equ	0xFF4
+  1900                           prodl	equ	0xFF3
+  1901                           intcon	equ	0xFF2
+  1902                           postinc0	equ	0xFEE
+  1903                           fsr0h	equ	0xFEA
+  1904                           fsr0l	equ	0xFE9
+  1905                           wreg	equ	0xFE8
+  1906                           postdec1	equ	0xFE5
+  1907                           plusw1	equ	0xFE3
+  1908                           fsr1h	equ	0xFE2
+  1909                           fsr1l	equ	0xFE1
+  1910                           indf2	equ	0xFDF
+  1911                           plusw2	equ	0xFDB
+  1912                           fsr2h	equ	0xFDA
+  1913                           fsr2l	equ	0xFD9
+  1914                           status	equ	0xFD8
+  1915                           
+  1916                           	psect	temp
+  1917  00004B                     btemp:
+  1918                           	opt stack 0
+  1919  00004B                     	ds	1
+  1920  0000                     int$flags	set	btemp
+  1921  0000                     wtemp6	set	btemp+1
+  1922                           pclatu	equ	0xFFB
+  1923                           pclath	equ	0xFFA
+  1924                           tblptru	equ	0xFF8
+  1925                           tblptrh	equ	0xFF7
+  1926                           tblptrl	equ	0xFF6
+  1927                           tablat	equ	0xFF5
+  1928                           prodh	equ	0xFF4
+  1929                           prodl	equ	0xFF3
+  1930                           intcon	equ	0xFF2
+  1931                           postinc0	equ	0xFEE
+  1932                           fsr0h	equ	0xFEA
+  1933                           fsr0l	equ	0xFE9
+  1934                           wreg	equ	0xFE8
+  1935                           postdec1	equ	0xFE5
+  1936                           plusw1	equ	0xFE3
+  1937                           fsr1h	equ	0xFE2
+  1938                           fsr1l	equ	0xFE1
+  1939                           indf2	equ	0xFDF
+  1940                           plusw2	equ	0xFDB
+  1941                           fsr2h	equ	0xFDA
+  1942                           fsr2l	equ	0xFD9
+  1943                           status	equ	0xFD8
+
+
+Data Sizes:
+    Strings     0
+    Constant    0
+    Data        32
+    BSS         1
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMRAM           94     41      74
+    BANK0           160     31      31
+    BANK1           256      0       0
+    BANK2           256      0       0
+    BANK3           256      0       0
+    BANK4           256      0       0
+    BANK5           256      0       0
+    BANK6           256      0       0
+    BANK7           256      0       0
+    BANK8           256      0       0
+    BANK9           256      0       0
+    BANK10          256      0       0
+    BANK11          256      0       0
+    BANK12          256      0       0
+    BANK13          256      0       0
+    BANK14          256      0       0
+    BANK15           96      0       0
+
+Pointer List with Targets:
+
+    SEND_RFID@command	PTR unsigned char  size(2) Largest target is 16
+		 -> get_NFC_tag@command1(COMRAM[4]), select_protocol@command(COMRAM[4]), calibration@command(BANK0[16]), 
+
+
+Critical Paths under _main in COMRAM
+
+    _main->_identity
+    _select_protocol->_SEND_RFID
+    _identity->_UART_Write
+    _get_NFC_tag->_SEND_RFID
+    _echo->_UART_Write
+    _calibration->_SEND_RFID
+    _SEND_RFID->_UART_Write
+
+Critical Paths under _isr in COMRAM
+
+    None.
+
+Critical Paths under _main in BANK0
+
+    _main->_calibration
+
+Critical Paths under _isr in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _isr in BANK1
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Critical Paths under _isr in BANK2
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _isr in BANK3
+
+    None.
+
+Critical Paths under _main in BANK4
+
+    None.
+
+Critical Paths under _isr in BANK4
+
+    None.
+
+Critical Paths under _main in BANK5
+
+    None.
+
+Critical Paths under _isr in BANK5
+
+    None.
+
+Critical Paths under _main in BANK6
+
+    None.
+
+Critical Paths under _isr in BANK6
+
+    None.
+
+Critical Paths under _main in BANK7
+
+    None.
+
+Critical Paths under _isr in BANK7
+
+    None.
+
+Critical Paths under _main in BANK8
+
+    None.
+
+Critical Paths under _isr in BANK8
+
+    None.
+
+Critical Paths under _main in BANK9
+
+    None.
+
+Critical Paths under _isr in BANK9
+
+    None.
+
+Critical Paths under _main in BANK10
+
+    None.
+
+Critical Paths under _isr in BANK10
+
+    None.
+
+Critical Paths under _main in BANK11
+
+    None.
+
+Critical Paths under _isr in BANK11
+
+    None.
+
+Critical Paths under _main in BANK12
+
+    None.
+
+Critical Paths under _isr in BANK12
+
+    None.
+
+Critical Paths under _main in BANK13
+
+    None.
+
+Critical Paths under _isr in BANK13
+
+    None.
+
+Critical Paths under _main in BANK14
+
+    None.
+
+Critical Paths under _isr in BANK14
+
+    None.
+
+Critical Paths under _main in BANK15
+
+    None.
+
+Critical Paths under _isr in BANK15
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 2     2      0    3460
+                                             39 COMRAM     2     2      0
+                        _calibration
+                               _echo
+                        _get_NFC_tag
+                           _identity
+                         _init_uart1
+                          _int_timer
+                    _select_protocol
+ ---------------------------------------------------------------------------------
+ (1) _select_protocol                                     10    10      0     967
+                                             23 COMRAM    10    10      0
+                          _SEND_RFID
+                          _UART_Read
+ ---------------------------------------------------------------------------------
+ (1) _int_timer                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _init_uart1                                           0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _identity                                            20    20      0     306
+                                             19 COMRAM    20    20      0
+                          _UART_Read
+                         _UART_Write
+ ---------------------------------------------------------------------------------
+ (1) _get_NFC_tag                                         10    10      0     936
+                                             23 COMRAM    10    10      0
+                          _SEND_RFID
+                          _UART_Read
+ ---------------------------------------------------------------------------------
+ (1) _echo                                                 2     2      0      99
+                                             19 COMRAM     2     2      0
+                         _UART_Write
+                          _read_echo
+ ---------------------------------------------------------------------------------
+ (2) _read_echo                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ (1) _calibration                                         33    33      0    1115
+                                             23 COMRAM     2     2      0
+                                              0 BANK0     31    31      0
+                          _SEND_RFID
+                          _UART_Read
+ ---------------------------------------------------------------------------------
+ (2) _UART_Read                                            0     0      0       0
+ ---------------------------------------------------------------------------------
+ (2) _SEND_RFID                                            4     1      3     701
+                                             19 COMRAM     4     1      3
+                         _UART_Write
+ ---------------------------------------------------------------------------------
+ (3) _UART_Write                                           1     1      0      31
+                                             18 COMRAM     1     1      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 3
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (4) _isr                                                 18    18      0       0
+                                              0 COMRAM    18    18      0
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 4
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _calibration
+     _SEND_RFID
+       _UART_Write
+     _UART_Read
+   _echo
+     _UART_Write
+     _read_echo
+   _get_NFC_tag
+     _SEND_RFID
+       _UART_Write
+     _UART_Read
+   _identity
+     _UART_Read
+     _UART_Write
+   _init_uart1
+   _int_timer
+   _select_protocol
+     _SEND_RFID
+       _UART_Write
+     _UART_Read
+
+ _isr (ROOT)
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BIGRAM             F5F      0       0      37        0.0%
+EEDATA             400      0       0       0        0.0%
+BITBANK14          100      0       0      33        0.0%
+BANK14             100      0       0      34        0.0%
+BITBANK13          100      0       0      30        0.0%
+BANK13             100      0       0      31        0.0%
+BITBANK12          100      0       0      28        0.0%
+BANK12             100      0       0      29        0.0%
+BITBANK11          100      0       0      26        0.0%
+BANK11             100      0       0      27        0.0%
+BITBANK10          100      0       0      24        0.0%
+BANK10             100      0       0      25        0.0%
+BITBANK9           100      0       0      22        0.0%
+BANK9              100      0       0      23        0.0%
+BITBANK8           100      0       0      20        0.0%
+BANK8              100      0       0      21        0.0%
+BITBANK7           100      0       0      18        0.0%
+BANK7              100      0       0      19        0.0%
+BITBANK6           100      0       0      16        0.0%
+BANK6              100      0       0      17        0.0%
+BITBANK5           100      0       0      14        0.0%
+BANK5              100      0       0      15        0.0%
+BITBANK4           100      0       0      12        0.0%
+BANK4              100      0       0      13        0.0%
+BITBANK3           100      0       0      10        0.0%
+BANK3              100      0       0      11        0.0%
+BITBANK2           100      0       0       8        0.0%
+BANK2              100      0       0       9        0.0%
+BITBANK1           100      0       0       6        0.0%
+BANK1              100      0       0       7        0.0%
+BITBANK0            A0      0       0       4        0.0%
+BANK0               A0     1F      1F       5       19.4%
+BITBANK15           60      0       0      35        0.0%
+BANK15              60      0       0      36        0.0%
+BITCOMRAM           5E      0       0       0        0.0%
+COMRAM              5E     29      4A       1       78.7%
+BITSFR               0      0       0     200        0.0%
+SFR                  0      0       0     200        0.0%
+STACK                0      0       0       2        0.0%
+NULL                 0      0       0       0        0.0%
+ABS                  0      0      69      32        0.0%
+DATA                 0      0      69       3        0.0%
+CODE                 0      0       0       0        0.0%
+
+
+Microchip Technology PIC18 Macro Assembler V1.44 build -154322312 
+Symbol Table                                                                                   Thu Jan 09 19:23:49 2025
+
+                      l80 02EC                        l81 02D4                        l74 03CE  
+                      l66 044A                        l75 03B6                        l83 0320  
+                      l84 02FA                        l93 0058                        l95 0092  
+                      l97 00B8                        l99 00C4                        u40 043C  
+             __CFG_OSC$HS 000000                       l100 00C6                       l110 0204  
+                     l121 0288                       l113 0206                       l106 01CC  
+                     l123 0294                       l108 01EE                       l119 0264  
+                     l136 0356                       l137 0340                       l139 037E  
+                     u610 00AC                       u710 027C                       u640 00E4  
+                     u571 001C                       u660 01E4                       u581 002E  
+                     u807 00D0                       u690 01FE                       u757 034C  
+                     u767 0368                       u777 0210                       u787 0314  
+                     u797 02A2                       _isr 0008                       prod 000FF3  
+                     wreg 000FE8                _TXSTA1bits 000FAC              __CFG_LVP$OFF 000000  
+        get_NFC_tag@F5732 0042              __CFG_WDT$OFF 000000                      l1208 0468  
+                    l1304 00E4                      l1314 01BC                      l1324 01E4  
+                    l1272 0048                      l1282 0082                      l1346 0254  
+                    l1292 00AC                      l1356 027C                      ?_isr 0001  
+ calibration@power_values 0070                      _LATD 000F8C                      i2l42 0140  
+                    _echo 0416                      _main 032A                      fsr0h 000FEA  
+                    fsr1h 000FE2                      fsr2h 000FDA                      fsr0l 000FE9  
+                    indf2 000FDF                      fsr1l 000FE1                      fsr2l 000FD9  
+                    btemp 004B                      prodh 000FF4                      prodl 000FF3  
+                    start 000E              ___param_bank 000000                     ??_isr 0001  
+      calibration@command 0060              identity@code 0025              _BAUDCON1bits 000F7E  
+      __size_of_SEND_RFID 0028                     ?_echo 0001                     ?_main 0001  
+    __size_of_calibration 00D8                     _PORTD 000F83                     _TRISD 000F95  
+          __CFG_FCMEN$OFF 000000               ?_UART_Write 0001        __size_of_UART_Read 0008  
+                   pclath 000FFA                     tablat 000FF5                     plusw1 000FE3  
+                   plusw2 000FDB                     status 000FD8                     wtemp6 004C  
+         __initialization 0384              __end_of_echo 0432              __end_of_main 0384  
+    __size_of_get_NFC_tag 0092                    ??_echo 0014                    ??_main 0028  
+           __activetblptr 000000  __size_of_select_protocol 0098                    _RCREG1 000FAE  
+                  _RCSTA1 000FAB                    _SPBRG1 000FAF       calibration@response 0078  
+       __end_of_SEND_RFID 03D8                    _TXREG1 000FAD                    _TXSTA1 000FAC  
+       __end_of_UART_Read 047A          __end_of_identity 032A       __size_of_UART_Write 000C  
+            __pdataCOMRAM 002A                    tblptrh 000FF7                    tblptrl 000FF6  
+                  tblptru 000FF8          calibration@F5720 003A          calibration@F5717 002A  
+              __accesstop 0060   __end_of__initialization 03A6             ___rparam_used 000001  
+          __pcstackCOMRAM 0001          SEND_RFID@command 0014    select_protocol@command 001A  
+       ??_select_protocol 0018            identity@length 0026        __size_of_read_echo 001C  
+      __size_of_int_timer 0018          select_protocol@i 0020              ??_UART_Write 0013  
+               ?_identity 0001                   __Hparam 0000                   __Lparam 0000  
+      __end_of_UART_Write 0472             ??_calibration 0018                _init_uart1 03F8  
+                 __pcinit 0384                   __ramtop 1000                   __ptext0 032A  
+                 __ptext1 018C                   __ptext2 044E                   __ptext3 03F8  
+                 __ptext4 02B6                   __ptext5 0224                   __ptext6 0416  
+                 __ptext7 0432                   __ptext8 0012                   __ptext9 0472  
+               _T0CONbits 000FD5              __size_of_isr 0184         __end_of_read_echo 044E  
+       __end_of_int_timer 0466                ??_identity 0014            __pintcode_body 00EA  
+    end_of_initialization 03A6                   int_func 00EA                 _SEND_RFID 03B0  
+           ??_get_NFC_tag 0018                   postdec1 000FE5                   postinc0 000FEE  
+               _UART_Read 0472            UART_Write@data 0013       __end_of_calibration 00EA  
+               _TRISCbits 000F94       get_NFC_tag@command1 001A       get_NFC_tag@response 001E  
+              ?_SEND_RFID 0014               ?_init_uart1 0001                ?_UART_Read 0001  
+           __pidataCOMRAM 03D8           _select_protocol 018C       __end_of_get_NFC_tag 02B6  
+     start_initialization 0384               __end_of_isr 018C              calibration@i 007B  
+            calibration@j 007D               _calibration 0012               __pbssCOMRAM 004A  
+           __pcstackBANK0 0060   select_protocol@response 001E           SEND_RFID@length 0016  
+              SEND_RFID@i 0017         __size_of_identity 0074       __size_of_init_uart1 001E  
+             ??_SEND_RFID 0017   __end_of_select_protocol 0224                 __pintcode 0008  
+             _get_NFC_tag 0224                 _flag_tmr0 004A               ??_UART_Read 0013  
+               _read_echo 0432                 _int_timer 044E                  _PIR1bits 000F9E  
+               identity@i 0027                ?_read_echo 0001                 copy_data0 0398  
+              ?_int_timer 0001                  __Hrparam 0000                  __Lrparam 0000  
+             echo@command 0015          ?_select_protocol 0001      select_protocol@F5726 0046  
+            ??_init_uart1 0013              get_NFC_tag@i 0020           main@instruction 0029  
+                __ptext10 03B0                  __ptext11 0466                  _identity 02B6  
+                echo@data 0014             __size_of_echo 001C             __size_of_main 005A  
+      __end_of_init_uart1 0416                  int$flags 004B              ?_calibration 0001  
+              _INTCONbits 000FF2               ??_read_echo 0013                  intlevel2 0000  
+             ??_int_timer 0013                _RCSTA1bits 000FAB              ?_get_NFC_tag 0001  
+              _UART_Write 0466     identity@identity_data 0015  
